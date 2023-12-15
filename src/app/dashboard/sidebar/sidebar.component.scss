@@ -1,0 +1,22 @@
+
+    .sidebar-content{
+        .sidebar-content-cart{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+
+            p{
+                font-weight: 500;
+                font-size: 18px;
+                margin: 0;
+                
+            }
+            &:hover{
+            background-color: rgba(229, 238, 255, 1);
+            border-radius: 30px;
+            color: rgba(52, 161, 244, 1);
+        }
+    }
+    }
+
