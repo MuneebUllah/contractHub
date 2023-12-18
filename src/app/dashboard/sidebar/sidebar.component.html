@@ -1,59 +1,71 @@
-<!-- <div class="sidebar"></div> -->
-<div class="bg-white d-flex flex-column gap-3 align-items-center" style="width: 300px; height:100%">
-    <!-- <div class="col-sm-12"> -->
-    <div class="d-flex align-items-center justify-content-around">
-        <b>THE <span style="color: rgba(52, 161, 244, 1); font-family: Montserrat;"> CONTRACTS</span></b>
-        <img src="../../../assets/hamburgermenu.svg" />
-    </div>
-    <div class="sidebar-content d-grid justify-content-center gap-3 align-items-center">
-        <div class="sidebar-content-cart">
-            <img src="../../../assets/Group1.svg" />
-            <p>Document</p>
-        </div>
-        <div class="sidebar-content-cart">
-            <img src="../../../assets/credit-card 1.svg" />
-            <p>Templete</p>
-
-        </div>
-        <div class="sidebar-content-cart">
-            <img src="../../../assets/Group2.svg" />
-            <p>Contects</p>
-        </div>
-        <div class="sidebar-content-cart">
-
-            <img src="../../../assets/Vector.svg" />
-            <p>Setting</p>
-        </div>
-        <div class="d-flex align-items-center rounded p-4 flex-column justify-content-center" style="background-color: rgba(226, 232, 240, 1); width: 250px;">
-            <img src="../../../assets/Upload.svg" style="width: 100px;"/>
+<div class="d-flex flex-column flex-shrink-0 p-3 text-black bg-white" style="width: 280px; height:100vh">
+ 
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="/dashboard" class="nav-link active" aria-current="page">
+          <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
+          Document
+        </a>
+      </li>
+      <li>
+        <a href="/dashboard" class="nav-link text-black">
+            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
+          Template
+        </a>
+      </li>
+      <li>
+        <a href="/dashboard" class="nav-link text-black">
+            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
+          Contacts
+        </a>
+      </li>
+      <li>
+        <a href="/dashboard" class="nav-link text-black">
+            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
+          Settings
+        </a>
+      </li>
+      <label class="" for="uploadIndividualFile">
+        <div class="d-flex align-items-center rounded p-4 flex-column justify-content-center" style="background-color: rgba(226, 232, 240, .3); width: 250px; border: 5px dotted #E2E8F0;">
+            <img src="../../../assets/Upload.svg" style=" width: 80px; height: 80px;"/>
             <p>Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br/> to Pakistan LLC <br/> Dashboard</p>
-            <div class="d-flex justify-content-between p-3 " style="width:100%; background-color: rgba(229, 238, 255, 1); border-radius: 32px;">
-                <p>Templete</p>
+            <div class="d-flex justify-content-between p-3 " style="width:100%; background-color: rgba(229, 238, 255, 1); border-radius: 32px; ">
+                <a class="nav-link active">Templete</a>
                 <p>Document</p>
             </div>
         </div>
-        <div>
-            <div class="sidebar-content-cart">
-
-                <img src="../../../assets/Vector.svg" />
-                <p>My Account</p>
+        <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile" accept="application/pdf">
+        <!-- <div >
+            <div >
+                <div class="d-flex align-items-center rounded p-4 flex-column justify-content-center" style="background-color: rgba(226, 232, 240, .3); width: 250px; border: 5px dotted #E2E8F0;" role="tabpanel" id="react-tabs-1" aria-labelledby="react-tabs-0">
+                    <div data-tip="upload document" data-for="message" data-type="info" id="upload-area"  currentitem="false">
+                        <label class="" for="uploadIndividualFile">
+                            <div class="text-center">
+                                <div>
+                                    <img width="78" src="https://contracthub-static-assets.s3.ap-south-1.amazonaws.com/uploadLge.png" alt="">
+                                </div>
+                                <strong class=""> Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br/> to Pakistan LLC <br/> Dashboard</strong> 
+                            </div>
+                            <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile" accept="application/pdf">
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div class="sidebar-content-cart">
-
-                <img src="../../../assets/Vector.svg" />
-                <p>Support</p>
+            <div class="SidebarUploadWidget-toggleSwitch">
+                <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-0" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-1" tabindex="0" data-rttab="true">Document</li>
+                </ul>
             </div>
-            <div class="sidebar-content-cart">
-
-                <img src="../../../assets/Vector.svg" />
-                <p>Setting</p>
-            </div>
-        </div>
+        </div> -->
+      </label>
+    </ul>
+    <hr>
+    <div >
+        <ul class=" text-small shadow" >
+            <li><a  href="#" class="text-black nav-link">Settings</a></li>
+            <li><a  href="#" class="text-black nav-link">Profile</a></li>
+            <li><a  href="#" class="text-black nav-link">Sign out</a></li>
+          </ul>
+     
     </div>
-    <!-- </div> -->
-    <span style="    background-color: rgba(232, 242, 255, 1);
-    color: rgba(52, 161, 244, 1);
-    width: 100%;
-    padding: 15px;
-    text-align: center;">The Contract v2.6.00</span>
-</div>
+  </div>
