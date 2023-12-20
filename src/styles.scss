@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ 
+input{    
+  height: 45px;
+  width: 100%;
+  border-radius: 12px;
+  color: rgba(148, 163, 184, 1);
+ outline: rgba(226, 232, 240, 1);
+ border: 1px solid rgba(226, 232, 240, 1);
+
+}

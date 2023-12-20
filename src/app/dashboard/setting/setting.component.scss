@@ -1,0 +1,35 @@
+
+input{
+    height: 45px;
+    width: 100%;
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 12px;
+    color: rgba(148, 163, 184, 1);
+    
+}
+button{
+    height: 50px;
+    width: 45%;
+    border-radius: 18rem;
+}
+span{
+    color:  rgba(148, 163, 184, 1);
+}
+label{
+font-size: 14px;
+color: rgba(38, 38, 38, 1);
+}
+
+.draggable-container {
+    position: relative;
+    margin: 20px;
+  }
+  
+  /* Optional: Add a style for the dragged element */
+  .cdk-drag {
+    cursor: move;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }

@@ -1,10 +1,13 @@
 
-    .sidebar-content{
+    // .sidebar-content{
         .sidebar-content-cart{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 30px;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
+            // padding: 10px 30px;
+            background-color: rgba(229, 238, 255, 1);
+            border-radius: 30px;
+            color: rgba(52, 161, 244, 1);
 
             p{
                 font-weight: 500;
@@ -12,11 +15,56 @@
                 margin: 0;
                 
             }
-            &:hover{
-            background-color: rgba(229, 238, 255, 1);
+        //     &:hover{
+            
+        // }
+    }
+        .upload-cart{
+            color: white;
+            background-color:  rgba(52, 161, 244, 1);
             border-radius: 30px;
-            color: rgba(52, 161, 244, 1);
+        }
+    // }
+
+    #SidebarUploadWidget {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        cursor: default!important;
+        background-color: #f3f6fd;
+        border: 1px solid #d9e0e5;
+        padding: 10px;
+        border-radius: 20px;
+        transition: all .2s;
+        position: relative;
+    }
+    .SidebarUploadWidget-content {
+        text-align: center;
+        -webkit-flex: 1 1;
+        flex: 1 1;
+        width: 100%;
+        border: 2px dotted var(--sidebar-border);
+        border-radius: 12px;
+        padding: 10px 20px 0 10px;
+        margin-bottom: 10px;
+        background: #fff;
+        cursor: pointer;
+    }
+    .react-tabs__tab-panel--selected {
+        height: 100%;
+        display: -webkit-flex!important;
+        display: flex!important;
+        padding-bottom: 20px;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    .sidebar-middle-content{
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0 0 15px #2d8eff;
+            text-shadow: 0 0 1px #2d8eff;
+            opacity: 0.8;
+            border-style: solid !important;
+            border-color: #6bafff !important;
         }
     }
-    }
-

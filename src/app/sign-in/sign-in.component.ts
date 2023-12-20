@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
  ]
 })
 export class SignInComponent {
- logIn:boolean = true;
+ logIn:boolean = false;
  signUp:boolean = false;
  reset:boolean = false;
+ stepperTimeZone:boolean = true
 
  constructor(private route: ActivatedRoute) {
 //   // Listen for changes in the route parameters
@@ -24,8 +25,8 @@ export class SignInComponent {
 ngOnInit() {
   this.route.url.subscribe(segments => {
     // Check the route segments to determine whether to show login or signup
-    this.logIn = segments[0].path === 'login';
-    this.signUp = segments[0].path === 'signup';
+    // this.logIn = segments[0].path === 'login';
+    // this.signUp = segments[0].path === 'signup';
   });
 }
 

@@ -1,71 +1,91 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-black bg-white" style="width: 280px; height:100vh">
- 
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="/dashboard" class="nav-link active" aria-current="page">
-          <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
-          Document
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard" class="nav-link text-black">
-            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
-          Template
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard" class="nav-link text-black">
-            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
-          Contacts
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard" class="nav-link text-black">
-            <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16"/>
-          Settings
-        </a>
-      </li>
-      <label class="" for="uploadIndividualFile">
-        <div class="d-flex align-items-center rounded p-4 flex-column justify-content-center" style="background-color: rgba(226, 232, 240, .3); width: 250px; border: 5px dotted #E2E8F0;">
-            <img src="../../../assets/Upload.svg" style=" width: 80px; height: 80px;"/>
-            <p>Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br/> to Pakistan LLC <br/> Dashboard</p>
-            <div class="d-flex justify-content-between p-3 " style="width:100%; background-color: rgba(229, 238, 255, 1); border-radius: 32px; ">
-                <a class="nav-link active">Templete</a>
-                <p>Document</p>
+<div class="d-flex align-items-center flex-column flex-shrink-0 text-black bg-white justify-content-between"
+    style="width: 280px; height:90vh">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-black text-decoration-none" style="width: 280px;">
+        <svg class="bi me-2" width="40" height="32">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4 pt-3">THE <b style="color: rgba(52, 161, 244, 1);">CONTRACT</b><img
+            src="../../../assets/hamburgermenu.svg" /></span>
+    
+      </a>
+    <div class="d-grid gap-5">
+        <ul class=" list-group flex-column mb-auto gap-2">
+            <li [routerLinkActive]="['link-active']" class="list-group-item border-0 p-3" (click)="documentfun()"
+                [ngClass]="veriableService.document ? 'sidebar-content-cart' : ''">
+                <a [routerLink]="['document']" class="nav-link ">
+                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    Document
+                </a>
+            </li>
+            <li [routerLinkActive]="['link-active']" class="list-group-item border-0 p-3"
+                [ngClass]="veriableService.templete ? 'sidebar-content-cart' : ''" (click)="templetefun()">
+                <a [routerLink]="['templete']" class="nav-link">
+                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    Template
+                </a>
+            </li>
+            <li [routerLinkActive]="['link-active']" [ngClass]="veriableService.contact ? 'sidebar-content-cart' : ''"
+                class="list-group-item border-0 p-3" (click)="contactfun()">
+                <a [routerLink]="['contact']" class="nav-link ">
+                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    Contacts
+                </a>
+            </li>
+            <li [routerLinkActive]="['link-active']" [ngClass]="veriableService.setting ? 'sidebar-content-cart' : ''"
+                class="list-group-item border-0 p-3" (click)="settingfun()">
+                <a [routerLink]="['setting']" class="nav-link ">
+                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    Settings
+                </a>
+            </li>
+        </ul>
+        <div class=" d-grid gap-2 p-4 border border-light">
+            <label for="uploadIndividualFile">
+            <div class="sidebar-middle-content d-flex align-items-center rounded p-4 flex-column justify-content-center"
+                style="background-color: rgba(226, 232, 240, .3); border: 5px dotted #E2E8F0;">
+                <img src="../../../assets/Upload.svg" style=" width: 80px; height: 80px;" />
+                <p>Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br /> to Pakistan LLC <br />
+                    Dashboard</p>
+                        <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile"
+                        accept="application/pdf" (change)="onFileSelected($event)"/>
+                    </div>
+                </label>
+            <p *ngIf="selectedFile">Selected File: {{ selectedFile.name }}</p>
+            <div class="d-flex justify-content-around align-items-center"
+                style="background-color: rgba(229, 238, 255, 1); border-radius: 30px;">
+                <span [ngClass]="veriableService.document ? 'upload-cart ' : ''" class="p-2 " (click)="documentfun()">Document</span>
+                <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-2 " (click)="templetefun()">Templete</span>
             </div>
         </div>
-        <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile" accept="application/pdf">
-        <!-- <div >
-            <div >
-                <div class="d-flex align-items-center rounded p-4 flex-column justify-content-center" style="background-color: rgba(226, 232, 240, .3); width: 250px; border: 5px dotted #E2E8F0;" role="tabpanel" id="react-tabs-1" aria-labelledby="react-tabs-0">
-                    <div data-tip="upload document" data-for="message" data-type="info" id="upload-area"  currentitem="false">
-                        <label class="" for="uploadIndividualFile">
-                            <div class="text-center">
-                                <div>
-                                    <img width="78" src="https://contracthub-static-assets.s3.ap-south-1.amazonaws.com/uploadLge.png" alt="">
-                                </div>
-                                <strong class=""> Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br/> to Pakistan LLC <br/> Dashboard</strong> 
-                            </div>
-                            <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile" accept="application/pdf">
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="SidebarUploadWidget-toggleSwitch">
-                <ul class="react-tabs__tab-list" role="tablist">
-                    <li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-0" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-1" tabindex="0" data-rttab="true">Document</li>
-                </ul>
-            </div>
-        </div> -->
-      </label>
-    </ul>
-    <hr>
-    <div >
-        <ul class=" text-small shadow" >
-            <li><a  href="#" class="text-black nav-link">Settings</a></li>
-            <li><a  href="#" class="text-black nav-link">Profile</a></li>
-            <li><a  href="#" class="text-black nav-link">Sign out</a></li>
-          </ul>
-     
     </div>
-  </div>
+    <div class="d-grid gap-3 w-100">
+        <ul class="list-group float-bottom gap-2">
+            <li [routerLinkActive]="['link-active']" (click)="accountfun()" class=" list-group-item border-0 p-3"
+                [ngClass]="veriableService.account ? 'sidebar-content-cart' : ''">
+                <a [routerLink]="['account']" class="nav-link">
+                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                    <span>My Account</span>
+                </a>
+            </li>
+            <li class=" list-group-item border-0 p-3"   [ngClass]="veriableService.support ? 'sidebar-content-cart' : ''">
+                <a [routerLink]="['setting']" class="nav-link">
+                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                    <span>Support</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0 p-3"   [ngClass]="veriableService.logout ? 'sidebar-content-cart' : ''">
+                <a [routerLink]="['setting']" class="nav-link">
+                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                    <span>Setting</span>
+                </a>
+            </li>
+        </ul>
+        <!-- </div> -->
+        <!-- </div> -->
+        <span style="background-color: rgba(232, 242, 255, 1);
+    color: rgba(52, 161, 244, 1);
+    width: 100%;
+    padding: 15px;
+    text-align: center;">The Contract v2.6.00</span>
+    </div>
+</div>
