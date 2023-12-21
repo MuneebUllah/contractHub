@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class VeriablesService {
  public isAdmin:boolean = false;
  public document:boolean = false;
- public templete:boolean = false;
+ public templete:boolean = true;
  public setting:boolean = false;
  public contact : boolean = false;
- public account : boolean = true;
+ public account : boolean = false;
  public support : boolean = false;
  public logout : boolean = false;
 

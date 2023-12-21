@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class StepperViewComponent {
 timeZone:boolean = false;
 address : boolean = false;
-chooseAccount:boolean=false;
-companyInfo:boolean = true;
+chooseAccount:boolean=true;
+companyInfo:boolean = false;
 corporateForm:boolean = false;
 companyState:boolean = false;
 companyCreatedMcg:boolean = false;

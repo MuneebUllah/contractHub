@@ -1,37 +1,26 @@
-<div class="setting d-flex  justify-content-around align-items-center w-100">
+<div class="setting d-flex  justify-content-around  w-100">
 <div class="bg-white rounded d-flex flex-column justify-content-between align-items-center gap-4 " style="height: 80vh ; width:20% ;">
   <th scope="col">Folder</th>
 </div>
-<div class="bg-white rounded d-flex flex-column justify-content-between align-items-center gap-4" style="height: 80vh; width: 70%;">
+<div class="bg-white rounded" style=" width: 70%;">
 <table class="table caption-top table-bordered table-striped">
     <thead>
-      <tr>
-       
-        <th scope="col">Title</th>
+      <tr> 
+        <th scope="col">Documents</th>
         <th scope="col">Status</th>
+        <th scope="col">Email Tracking</th>
         <th scope="col">With</th>
-        <th scope="col">Effective</th>
+        <th scope="col">Action</th>
 
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let items of document">
+        <td scope="row">{{items.name}}</td>
+        <td>{{items.status}}</td>
+        <td>{{items.email}}</td>
+        <td>{{items.with}}</td>
+        <td><img src="{{items.action}}" /></td>
       </tr>
     </tbody>
   </table>
