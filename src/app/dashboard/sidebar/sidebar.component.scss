@@ -1,63 +1,17 @@
-
-    // .sidebar-content{
-        .sidebar-content-cart{
-            // display: flex;
-            // align-items: center;
-            // justify-content: space-between;
-            // padding: 10px 30px;
-            background-color: rgba(229, 238, 255, 1);
-            border-radius: 30px;
-            color: rgba(52, 161, 244, 1);
-
-            p{
-                font-weight: 500;
-                font-size: 18px;
-                margin: 0;
-                
-            }
-        //     &:hover{
-            
-        // }
+.sidebar-content-cart{
+    background-color: rgba(229, 238, 255, 1);
+    border-radius: 30px;
+    color: rgba(52, 161, 244, 1);
     }
-        .upload-cart{
-            color: white;
-            background-color:  rgba(52, 161, 244, 1);
-            border-radius: 30px;
+
+.sidebar-middle-content{
+    background-color: rgba(226, 232, 240, .3); 
+    border: 5px dotted #E2E8F0;
+
+        img{
+            height: 80px;
+            width: 80px;
         }
-    // }
-
-    #SidebarUploadWidget {
-        -webkit-flex-direction: column;
-        flex-direction: column;
-        cursor: default!important;
-        background-color: #f3f6fd;
-        border: 1px solid #d9e0e5;
-        padding: 10px;
-        border-radius: 20px;
-        transition: all .2s;
-        position: relative;
-    }
-    .SidebarUploadWidget-content {
-        text-align: center;
-        -webkit-flex: 1 1;
-        flex: 1 1;
-        width: 100%;
-        border: 2px dotted var(--sidebar-border);
-        border-radius: 12px;
-        padding: 10px 20px 0 10px;
-        margin-bottom: 10px;
-        background: #fff;
-        cursor: pointer;
-    }
-    .react-tabs__tab-panel--selected {
-        height: 100%;
-        display: -webkit-flex!important;
-        display: flex!important;
-        padding-bottom: 20px;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-    }
-    .sidebar-middle-content{
 
         &:hover{
             cursor: pointer;
@@ -67,4 +21,26 @@
             border-style: solid !important;
             border-color: #6bafff !important;
         }
+    }
+    .sidebar-middle-down-content{
+        background-color: rgba(229, 238, 255, 1); 
+        border-radius: 30px;
+
+        span{
+            cursor: pointer;
+        }
+
+
+        .upload-cart{
+            color: white;
+            background-color:  rgba(52, 161, 244, 1);
+            border-radius: 30px;
+            }
+    }
+    .sidebar-bottom{
+        background-color: rgba(232, 242, 255, 1);
+        color: rgba(52, 161, 244, 1);
+        width: 100%;
+        padding: 15px;
+        text-align: center;
     }

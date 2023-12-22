@@ -1,92 +1,82 @@
 <div class="d-flex align-items-center flex-column bg-white h-100 gap-3">
-        <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 text-black text-decoration-none" style="width: 280px;">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-            <div class="fs-5 pt-3 d-flex w-100 justify-content-between align-items-center"><div>THE <b style="color: rgba(52, 161, 244, 1);">CONTRACT</b></div><img
-                src="../../../assets/hamburgermenu.svg" /></div>
-                
-            </a>
-        <div class="d-flex flex-column gap-5">    
-            <!-- <div class="d-grid gap-5"> -->
-        <ul class=" list-group flex-column mb-auto gap-2">
+    <a href="/dashboard"
+        class="nav-link d-flex fs-5 p-3 align-items-center">
+        <div>THE <b style="color: rgba(52, 161, 244, 1);">CONTRACT</b></div>
+        <img src="../../../assets/hamburgermenu.svg" />
+    </a>
+    <div class="d-flex flex-column gap-5">
+        <ul class=" list-group">
             <li [routerLinkActive]="['link-active']" class="list-group-item border-0 p-3" (click)="documentfun()"
                 [ngClass]="veriableService.document ? 'sidebar-content-cart' : ''">
                 <a [routerLink]="['document']" class="nav-link ">
-                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
                     Document
                 </a>
             </li>
             <li [routerLinkActive]="['link-active']" class="list-group-item border-0 p-3"
                 [ngClass]="veriableService.templete ? 'sidebar-content-cart' : ''" (click)="templetefun()">
                 <a [routerLink]="['templete']" class="nav-link">
-                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
                     Template
                 </a>
             </li>
             <li [routerLinkActive]="['link-active']" [ngClass]="veriableService.contact ? 'sidebar-content-cart' : ''"
                 class="list-group-item border-0 p-3" (click)="contactfun()">
                 <a [routerLink]="['contact']" class="nav-link ">
-                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
                     Contacts
                 </a>
             </li>
             <li [routerLinkActive]="['link-active']" [ngClass]="veriableService.setting ? 'sidebar-content-cart' : ''"
                 class="list-group-item border-0 p-3" (click)="settingfun()">
                 <a [routerLink]="['setting']" class="nav-link ">
-                    <img src="../../../assets/Group1.svg" class="bi me-2" width="16" height="16" />
+                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
                     Settings
                 </a>
             </li>
         </ul>
         <div class=" d-grid gap-3 p-4 border border-light">
             <label for="uploadIndividualFile">
-            <div class="sidebar-middle-content d-flex align-items-center rounded p-4 flex-column justify-content-center"
-                style="background-color: rgba(226, 232, 240, .3); border: 5px dotted #E2E8F0;">
-                <img src="../../../assets/Upload.svg" style=" width: 80px; height: 80px;" />
-                <p>Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br /> to Pakistan LLC <br />
-                    Dashboard</p>
-                        <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile"
-                        accept="application/pdf" (change)="onFileSelected($event)"/>
-                    </div>
-                </label>
-            <p *ngIf="selectedFile">Selected File: {{ selectedFile.name }}</p>
-            <div class="d-flex justify-content-around align-items-center"
-                style="background-color: rgba(229, 238, 255, 1); border-radius: 30px;">
-                <span [ngClass]="veriableService.document ? 'upload-cart ' : ''" class="p-3 " (click)="documentfun()">Document</span>
-                <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-3 " (click)="templetefun()">Templete</span>
+                <div class="sidebar-middle-content d-flex align-items-center rounded p-4 flex-column ">
+                    <img src="../../../assets/Upload.svg"/>
+                    <p>Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span><br /> to Pakistan LLC <br />
+                        Dashboard</p>
+                    <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile"
+                        accept="application/pdf" (change)="onFileSelected($event)" />
+                </div>
+            </label>
+            <div class="py-3 sidebar-middle-down-content">
+                <span [ngClass]="veriableService.document ? 'upload-cart' : ''" class="p-3"
+                    (click)="documentfun()">Document</span>
+                <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-3 "
+                    (click)="templetefun()">Templete</span>
             </div>
         </div>
-    <!-- </div> -->
-    <div class="d-grid gap-3 w-100">
-        <ul class="list-group float-bottom gap-2">
-            <li [routerLinkActive]="['link-active']" (click)="accountfun()" class=" list-group-item border-0 p-3"
-                [ngClass]="veriableService.account ? 'sidebar-content-cart' : ''">
-                <a [routerLink]="['account']" class="nav-link">
-                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
-                    <span>My Account</span>
-                </a>
-            </li>
-            <li class=" list-group-item border-0 p-3"   [ngClass]="veriableService.support ? 'sidebar-content-cart' : ''">
-                <a [routerLink]="['setting']" class="nav-link">
-                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
-                    <span>Support</span>
-                </a>
-            </li>
-            <li class="list-group-item border-0 p-3"   [ngClass]="veriableService.logout ? 'sidebar-content-cart' : ''">
-                <a [routerLink]="['setting']" class="nav-link">
-                    <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
-                    <span>Setting</span>
-                </a>
-            </li>
-        </ul>
-        <!-- </div> -->
-        <!-- </div> -->
-        </div>
-        </div>
-        <span style="background-color: rgba(232, 242, 255, 1);
-    color: rgba(52, 161, 244, 1);
-    width: 100%;
-    padding: 15px;
-    text-align: center;">The Contract v2.6.00</span>
+
+            <ul class="list-group">
+                <li [routerLinkActive]="['link-active']" (click)="accountfun()" class=" list-group-item border-0 p-3"
+                    [ngClass]="veriableService.account ? 'sidebar-content-cart' : ''">
+                    <a [routerLink]="['account']" class="nav-link">
+                        <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                        <span>My Account</span>
+                    </a>
+                </li>
+                <li class=" list-group-item border-0 p-3"
+                    [ngClass]="veriableService.support ? 'sidebar-content-cart' : ''">
+                    <a [routerLink]="['setting']" class="nav-link">
+                        <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                        <span>Support</span>
+                    </a>
+                </li>
+                <li class="list-group-item border-0 p-3"
+                    [ngClass]="veriableService.logout ? 'sidebar-content-cart' : ''">
+                    <a [routerLink]="['setting']" class="nav-link">
+                        <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
+                        <span>LogOut</span>
+                    </a>
+                </li>
+            </ul>
+ 
+    </div>
+    <span class="sidebar-bottom">The Contract v2.6.00</span>
 </div>

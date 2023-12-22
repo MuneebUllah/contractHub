@@ -18,29 +18,25 @@ export class SidebarComponent implements OnInit {
     this.veriableService.document = true;
     this.veriableService.templete = false;
     this.veriableService.setting  = false;
-    this.veriableService.contact  = false;
-    // this.router.navigate(['dashboard/document']);
+    this.veriableService.contact  = false
   }
   templetefun(){
     this.veriableService.document = false;
     this.veriableService.templete = true;
     this.veriableService.setting  = false;
     this.veriableService.contact  = false;
-    // this.router.navigate(['dashboard/templete']);
   }
   contactfun(){
     this.veriableService.document = false;
     this.veriableService.templete = false;
     this.veriableService.setting  = false;
     this.veriableService.contact  = true;
-    // this.router.navigate(['dashboard/contact']);
   }
   settingfun(){
     this.veriableService.document = false;
     this.veriableService.templete = false;
     this.veriableService.setting  = true;
     this.veriableService.contact  = false;
-    // this.router.navigate(['dashboard/setting']);
   }
   accountfun(){
     this.veriableService.document = false;
@@ -48,21 +44,18 @@ export class SidebarComponent implements OnInit {
     this.veriableService.setting  = false;
     this.veriableService.contact  = false;
     this.veriableService.account = true
-    // this.router.navigate(['dashboard/setting']);
   }
   // supportfun(){
   //   this.veriableService.document = false;
   //   this.veriableService.templete = false;
   //   this.veriableService.setting  = true;
   //   this.veriableService.contact  = false;
-  //   // this.router.navigate(['dashboard/setting']);
   // }
   // logoutfun(){
   //   this.veriableService.document = false;
   //   this.veriableService.templete = false;
   //   this.veriableService.setting  = true;
   //   this.veriableService.contact  = false;
-  //   // this.router.navigate(['dashboard/setting']);
   // }
   selectedFile: File | null = null;
 

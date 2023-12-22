@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,26 +7,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sign-in.component.scss', 
  ]
 })
-export class SignInComponent {
+export class SignInComponent{
  logIn:boolean = false;
  signUp:boolean = false;
- reset:boolean = false;
- stepperTimeZone:boolean = true
+ reset:boolean = true;
+ stepperTimeZone:boolean = false
 
- constructor(private route: ActivatedRoute) {
-//   // Listen for changes in the route parameters
-//   this.route.url.subscribe(segments => {
-//     // Check the route segments to determine whether to show login or signup
-//     this.logIn = segments[0].path === 'login';
-//     this.signUp = segments[0].path === 'signup';
-//   });
-}
+ constructor(private route: ActivatedRoute) { }
 
 ngOnInit() {
   this.route.url.subscribe(segments => {
-    // Check the route segments to determine whether to show login or signup
-    // this.logIn = segments[0].path === 'login';
-    // this.signUp = segments[0].path === 'signup';
+    this.logIn = segments[0].path === 'login';
+    this.signUp = segments[0].path === 'signup';
   });
 }
 

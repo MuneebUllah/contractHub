@@ -1,144 +1,142 @@
+<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="timeZone">
+    <div
+        class="stepper-cart d-flex rounded justify-content-center align-items-center text-center py-5 px-2 gap-3 flex-column bg-white">
+        <div class="d-flex align-items-center flex-column">
+            <h1>🗺 What is your Preffered Time Zone?</h1>
+            <p style="width: 75%;">😍 We are excited to have you on board. Lets set up your Account.</p>
+        </div>
+        <div class="justify-content-center row gap-2" style="width: 450px;">
+            <input type="button" value="Automatically detect" class="col-5">
+            <input type="button" value="Hawaii" class="col-5" />
+            <input type="button" value="Pacific" class="col-5" />
+            <input type="button" value="Mountain" class="col-5" />
+            <input type="button" value="Eastern" class="col-5" />
+            <input type="button" value="Central" class="col-5" />
+            <input type="button" value="Other" class="col-5" />
 
-<div class="stepper-time-zone" *ngIf="timeZone">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
-    
-                <h4>🗺 What is your Preffered Time Zone?</h4>
-                <p>😍 We are excited to have you on board. Lets set up your Account.</p>
-                <div class="d-flex flex-wrap gap-2">
-                <input type="button" value="Automatically detect">
-                <input type="button" value="Hawaii"/>
-                <input type="button" value="Pacific"/>
-                <input type="button" value="Mountain"/>
-                <input type="button" value="Eastern"/>
-                <input type="button" value="Central"/>
-                <input type="button" value="Other"/>
-             
-                </div>
-            <button  type="button" class="btn btn-primary">Next</button>
-            <div class="d-flex">
+        </div>
+        <button type="button" class="btn btn-primary">Next</button>
+        <div class="d-flex">
+        </div>
+    </div>
+</div>
+
+<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="address">
+    <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column bg-white" style="width: 500px;">
+        <div class="d-flex justify-content-center align-items-center text-center gap-3 flex-column" style="width: 80%;">
+            <div class="d-flex align-items-center flex-column" style="width: 80%;">
+                <h1>🏠 What is your Address?</h1>
+                <p>The Below information is used to populate your Documents</p>
+            </div>
+            <div class="row justify-content-center gap-2">
+                <input type="text" placeholder="Street Address" class="col-10">
+                <input type="text" placeholder="City" class="col-5" />
+                <input type="text" placeholder="State" class="col-5" />
+                <input type="text" placeholder="Zip" class="col-5" />
+                <input type="text" placeholder="State" class="col-5" />
+            </div>
+            <div class="d-flex gap-2 w-100">
+                <button class="border-primary btn text-primary bg-white ">Skip</button>
+                <button type="button" class="btn btn-primary">Next</button>
             </div>
         </div>
     </div>
-    </div>
 </div>
 
-<div class="stepper-time-zone" *ngIf="address">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
-    
-                <h4>🏠 What is your Address?</h4>
-                <p>The Below information is used to populate your Documents</p>
-                <div class="d-flex flex-wrap gap-2">
-                <input type="text" placeholder="Street Address" style="width: 91%;">
-                <input type="text" placeholder="City"/>
-                <input type="text" placeholder="State"/>
-                <input type="text" placeholder="Zip"/>
-                <input type="text" placeholder="State"/>
-             
-                </div>
-                <div class="d-flex gap-2">
-                    <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-                    <button  type="button" class="btn btn-primary">Next</button>
-                </div>
-
-        </div>
-    </div>
-    </div>
-</div>
-
-<div class="stepper-time-zone" *ngIf="chooseAccount">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
-    
-                <h4>Would you like to set up a Company Account?</h4>
+<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="chooseAccount">
+    <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column bg-white" style="width: 400px;">
+        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" style="width: 80%;">
+            <div
+                class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
+                <div class="d-flex align-items-center flex-column" style="width: 95%;">
+                <h1>Would you like to set up a Company Account?</h1>
                 <p>With Company Account you have Access to:</p>
-                <ul class="d-flex flex-wrap gap-2">
-                    <li class="fw-bold">Pre-made Templates</li>
-                    <li class="fw-bold">Create your own Templates</li>
-                    <li class="fw-bold">Implement Team Workflows</li>
-                    <li class="fw-bold text-start">Draft, Sign and manage Documents on behalf of a company</li>
-
-             
+            </div>
+                <ul class="d-flex row flex-wrap gap-2">
+                    <li class="fw-bold col-10">Pre-made Templates</li>
+                    <li class="fw-bold col-10">Create your own Templates</li>
+                    <li class="fw-bold col-10">Implement Team Workflows</li>
+                    <li class="fw-bold text-start col-10">Draft, Sign and manage Documents on behalf of a company</li>
                 </ul>
                 <div class="d-grid gap-2">
-                    <button  type="button" class="btn btn-primary w-100">Yes</button>
-                    <button class="border-primary btn text-primary bg-white w-100">No, I will only receiving documents</button>
+                    <button type="button" class="btn btn-primary w-100">Yes</button>
+                    <button class="border-primary btn text-primary bg-white w-100">No, I will only receiving
+                        documents</button>
                 </div>
 
+            </div>
         </div>
-    </div>
     </div>
 </div>
 
-<div class="stepper-time-zone" *ngIf="companyInfo">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
+<div class="stepper" *ngIf="companyInfo">
+    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
         <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
-    
-                <h4>Company Information</h4>
+            <div
+                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
+
+                <h1>Company Information</h1>
                 <div class=" d-flex flex-column gap-2 w-100">
                     <label>Company Legal Name</label>
                     <input type="text" placeholder="Company Legal Name" class="w-100">
                     <label>Admin Email</label>
-                    <input type="text" placeholder="Admin Email" class="w-100"/>
-             
+                    <input type="text" placeholder="Admin Email" class="w-100" />
+
                 </div>
                 <div class="d-flex gap-2 w-100">
                     <button class="border-primary btn text-primary bg-white w-50">Exit</button>
-                    <button  type="button" class="btn btn-primary w-50">Next</button>
+                    <button type="button" class="btn btn-primary w-50">Next</button>
                 </div>
 
-        </div>
-    </div>
-    </div>
-</div>
-
-<div class="stepper-time-zone" *ngIf="corporateForm">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3"  style="width: 33rem;">
-            <div class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
-    
-                <h4>Corporate Form</h4>
-                <p>The Below information is used to populate your documents</p>
-                <div class="d-flex flex-wrap gap-3 ">
-                <input type="button" value="Limited Company">
-                <input type="button" value="Sole Company"/>
-                <input type="button" value="S-Corporation"/>
-                <input type="button" value="C-Corporation"/>
-                <input type="button" value="Professional Corporation"/>
-                <input type="button" value="Limited Liability Company"/>
-                <input type="button" value="Limited Partnership"/>
-                <input type="button" value="Endowment">
-                <input type="button" value="Employment Benefit Plan"/>
-                <input type="button" value="Foundation"/>
-                <input type="button" value="Trust"/>
-                <input type="button" value="Keogh Plan"/>
-                <input type="button" value="Limited Liability Partnership"/>
-                <input type="button" value="Limited Liability Company"/>
-             
-                </div>
-
-                <div class="d-flex gap-2 w-100">
-                <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-            <button  type="button" class="btn btn-primary w-50">Next</button>
             </div>
         </div>
     </div>
+</div>
+
+<div class="stepper" *ngIf="corporateForm">
+    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
+        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" style="width: 33rem;">
+            <div
+                class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
+
+                <h1>Corporate Form</h1>
+                <p>The Below information is used to populate your documents</p>
+                <div class="d-flex flex-wrap gap-3 ">
+                    <input type="button" value="Limited Company">
+                    <input type="button" value="Sole Company" />
+                    <input type="button" value="S-Corporation" />
+                    <input type="button" value="C-Corporation" />
+                    <input type="button" value="Professional Corporation" />
+                    <input type="button" value="Limited Liability Company" />
+                    <input type="button" value="Limited Partnership" />
+                    <input type="button" value="Endowment">
+                    <input type="button" value="Employment Benefit Plan" />
+                    <input type="button" value="Foundation" />
+                    <input type="button" value="Trust" />
+                    <input type="button" value="Keogh Plan" />
+                    <input type="button" value="Limited Liability Partnership" />
+                    <input type="button" value="Limited Liability Company" />
+
+                </div>
+
+                <div class="d-flex gap-2 w-100">
+                    <button class="border-primary btn text-primary bg-white w-50">Skip</button>
+                    <button type="button" class="btn btn-primary w-50">Next</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="stepper-time-zone" *ngIf="companyState">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
+<div class="stepper" *ngIf="companyState">
+    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
         <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-3">
-    
-                <h4>In What State was your Company Formed?</h4>
-                    <p>The Below information is used to populate documents.</p>
-                    <input type="address" placeholder="New York...." class="w-100">
+            <div
+                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-3">
+
+                <h1>In What State was your Company Formed?</h1>
+                <p>The Below information is used to populate documents.</p>
+                <input type="address" placeholder="New York...." class="w-100">
                 <!-- <div class=" d-flex flex-column gap-2 w-100">
                     <label>Company Legal Name</label>
                     <label>Admin Email</label>
@@ -147,27 +145,28 @@
                 </div> -->
                 <div class="d-flex gap-2 w-100">
                     <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-                <button  type="button" class="btn btn-primary w-50">Next</button>
+                    <button type="button" class="btn btn-primary w-50">Next</button>
                 </div>
 
+            </div>
         </div>
-    </div>
     </div>
 </div>
 
 
-<div class="stepper-time-zone" *ngIf="companyCreatedMcg">
-    <div class="sign-in-cart d-flex justify-content-center align-items-center h-100 w-100">
+<div class="stepper" *ngIf="companyCreatedMcg">
+    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
         <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
-                <img src="../../assets/Check.svg"/>
-                <h4>Thanks, {{companyName}}</h4>
-                    <p>Your new company account is ready to use.</p>
+            <div
+                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
+                <img src="../../assets/Check.svg" />
+                <h1>Thanks, {{companyName}}</h1>
+                <p>Your new company account is ready to use.</p>
                 <!-- <div class="d-flex gap-2 w-100"> -->
-                <button  type="button" class="btn btn-primary w-50">Lets go!</button>
+                <button type="button" class="btn btn-primary w-50">Lets go!</button>
                 <!-- </div> -->
 
+            </div>
         </div>
-    </div>
     </div>
 </div>

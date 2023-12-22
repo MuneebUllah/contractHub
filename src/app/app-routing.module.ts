@@ -8,6 +8,7 @@ import { TempleteComponent } from './dashboard/templete/templete.component';
 import { ContactComponent } from './dashboard/contact/contact.component';
 import { SettingComponent } from './dashboard/setting/setting.component';
 import { AccountComponent } from './dashboard/account/account.component';
+import { StepperViewComponent } from './stepper-view/stepper-view.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -15,9 +16,10 @@ const routes: Routes = [
     path:'signup',
     component:SignInComponent
   },
-  // {
-  //   path:''
-  // }
+  {
+    path:'new-account',
+    component:StepperViewComponent
+  },
   {
     path:'login',
     component:SignInComponent
