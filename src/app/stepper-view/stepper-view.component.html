@@ -47,12 +47,12 @@
     <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column bg-white" style="width: 400px;">
         <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" style="width: 80%;">
             <div
-                class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
+                class="sign-in-right-cart text-center d-flex justify-content-center align-items-center flex-column gap-3">
                 <div class="d-flex align-items-center flex-column" style="width: 95%;">
                 <h1>Would you like to set up a Company Account?</h1>
                 <p>With Company Account you have Access to:</p>
             </div>
-                <ul class="d-flex row flex-wrap gap-2">
+                <ul class="d-flex row flex-wrap text-start gap-2">
                     <li class="fw-bold col-10">Pre-made Templates</li>
                     <li class="fw-bold col-10">Create your own Templates</li>
                     <li class="fw-bold col-10">Implement Team Workflows</li>
@@ -154,19 +154,3 @@
 </div>
 
 
-<div class="stepper" *ngIf="companyCreatedMcg">
-    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
-            <div
-                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
-                <img src="../../assets/Check.svg" />
-                <h1>Thanks, {{companyName}}</h1>
-                <p>Your new company account is ready to use.</p>
-                <!-- <div class="d-flex gap-2 w-100"> -->
-                <button type="button" class="btn btn-primary w-50">Lets go!</button>
-                <!-- </div> -->
-
-            </div>
-        </div>
-    </div>
-</div>

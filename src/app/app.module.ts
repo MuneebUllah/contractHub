@@ -7,6 +7,11 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { StepperViewComponent } from './stepper-view/stepper-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { AccountCreatedComponent } from './account-created/account-created.component';
+import { ResetComponent } from './reset/reset.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
@@ -14,12 +19,17 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     AppComponent,
     SignInComponent,
     StepperViewComponent,
+    AccountCreatedComponent,
+    ResetComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    HttpClientModule,
+    FormsModule
     // DashboardModule
   ],
   providers: [],

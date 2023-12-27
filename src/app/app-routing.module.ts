@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, provideRouter } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
@@ -9,7 +9,10 @@ import { ContactComponent } from './dashboard/contact/contact.component';
 import { SettingComponent } from './dashboard/setting/setting.component';
 import { AccountComponent } from './dashboard/account/account.component';
 import { StepperViewComponent } from './stepper-view/stepper-view.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccountCreatedComponent } from './account-created/account-created.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ResetComponent } from './reset/reset.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -21,15 +24,24 @@ const routes: Routes = [
     component:StepperViewComponent
   },
   {
+    path:'verify/:id',
+    component:AccountCreatedComponent
+  },
+  {
     path:'login',
     component:SignInComponent
   },
   {
     path:'reset',
-    component:SignInComponent
+    component:ResetComponent
+  },
+  {
+    path:'change-password',
+    component:ChangePasswordComponent
   },
   {
     path:'dashboard',
+    canActivate: [AuthGuard],
     component:DashboardComponent,
     children:[
       {
@@ -66,6 +78,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[
+    // provideRouter(routes , )
+  ]
 })
 export class AppRoutingModule { }
+

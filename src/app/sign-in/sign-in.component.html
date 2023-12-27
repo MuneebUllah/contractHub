@@ -1,77 +1,59 @@
-<div class="sign-in d-flex justify-content-center align-items-center h-100" *ngIf="signUp">
-    <div class="sign-in-cart d-flex ">
+<div class="sign-in d-flex justify-content-center align-items-center " style="height: 100vh;"  *ngIf="signUp">
+    <div class="sign-in-cart d-flex " >
         <img src="../../assets/SignIn.png" class="rounded-start"/>
     <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
         <div class="sign-in-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
 
             <h1>Sign Up for an Account</h1>
             <!-- <div > -->
-            <input type="text" placeholder="Enter Yours Name"/>
-            <input type="email" placeholder="Enter Yours Email"/>
-            <input type="password" placeholder="Enter Yours Password"/>
+            <input type="text" placeholder="Enter Yours Name" [(ngModel)]="reg_name" />
+            <input type="email" placeholder="Enter Yours Email" [(ngModel)]="reg_email"/>
+            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="reg_password"/>
             <p>Your password must have at least 8 characters</p>
             <div class="d-flex">
-                <input type="checkbox" style="width: 25%; height: 30px;"/>
+                <input type="checkbox" style="width: 25%; height: 30px;" [(ngModel)]="checkboxChecked" />
                 <p>By creating an account means you agree to the <b> Terms & Conditions </b> and our <b> Privacy Policy</b></p>
-        </div>
-        <button  type="button" class="btn btn-primary">Sign In</button>
-        <div [routerLinkActive]="['link-active']" class="d-flex">
-            <p>Already have an account?</p>
-            <a class = "text-decoration-none" [routerLink]="['login']" class="loginfun()"> Log In</a>
-        </div>
+              </div>
+              
+              <button type="button" class="btn btn-primary" (click)="signupfun()" [disabled]="!checkboxChecked">Register</button>
+              
+              <div [routerLinkActive]="['link-active']" class="d-flex">
+                <p>Already have an account?</p>
+                <a class="text-decoration-none" [routerLink]="['login']">Log In</a>
+              </div>
     </div>
 </div>
 </div>
 </div>
-<div class="sign-in d-flex justify-content-center align-items-center h-100" *ngIf="logIn">
-    <div class="sign-in-cart d-flex">
+<div class="sign-in d-flex justify-content-center align-items-center h-100"  *ngIf="logIn">
+    <div class="sign-in-cart d-flex" style="width: 60%;">
         <img src="../../assets/loginpage.png" class="rounded-start"/>
     <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
         <div class="sign-in-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
 
             <h1>Sign In for an Account</h1>
             <p>Welcome back! please enter your detail</p>
-            <input type="email" placeholder="Enter Yours Email"/>
-            <input type="password" placeholder="Enter Yours Password"/>
-            <div [routerLinkActive]="['link-active']" class="d-flex justify-content-between w-100" >
+            <input type="email" placeholder="Enter Yours Email" required [(ngModel)]="reg_email"/>
+            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="reg_password"/>
+            <div [routerLinkActive]="['link-active']" class="d-flex justify-content-between w-100" required>
                 <div class="d-flex gap-2 w-50">
-                    <input type="checkbox" style="width: 20px; height: 20px;"/>
+                    <input type="checkbox" style="width: 20px; height: 20px;" [(ngModel)]="checkboxChecked" />
                     <span>Rember Me</span>
                 </div>
                 <a class = "text-decoration-none" routerLink='/reset'>Forget Password?</a>
             </div>
-        <button  type="button" class="btn btn-primary">Sign In</button>
+        <button  type="button" class="btn btn-primary" (click)="logInfun()" [disabled]="!checkboxChecked">Sign In</button>
         <div [routerLinkActive]="['link-active']" class="d-flex">
             <p>Don't have an account?</p>
-            <a class = "text-decoration-none" routerLink='/signup' (click)="signupfun()"> Sign Up</a>
+            <a class = "text-decoration-none" routerLink='/signup' > Sign Up</a>
         </div>
         <!-- </div> -->
     </div>
 </div>
 </div>
 </div>
-<div class="sign-in d-flex justify-content-center align-items-center h-100" *ngIf="reset">
-    <div class="sign-in-cart d-flex">
-        <img src="../../assets/reset.svg" class="rounded-start"/>
-    <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
-        <div class="sign-in-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
-<!-- <div> -->
-            <h1>Reset Password</h1>
-            <p>Enter the email address associated with your account and we will send you a link to reset your password.</p>
-                <input type="text" placeholder="Enter Yours Name"/>
 
-        <button  type="button" class="btn btn-primary">Countinue</button>
-        <a class = "text-decoration-none" routerLink="/login" (click)="logInfun()">Back to Login</a>
-    <!-- </div> -->
-        <div class="d-flex align-items-end position-relative " style="bottom: -15rem;">
-            <p>Don't have an account?</p>
-            <a class = "text-decoration-none" routerLink="/signup" (click)="signupfun()"> Sign Up</a>
-        </div>
-    </div>
-    <!-- </div> -->
-</div>
-</div>
-</div>
+
 <div *ngIf="stepperTimeZone">
     <app-stepper-view></app-stepper-view>
 </div>

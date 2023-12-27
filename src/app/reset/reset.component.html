@@ -1,0 +1,22 @@
+<div class="reset d-flex justify-content-center align-items-center h-100">
+    <div class="reset-cart d-flex">
+        <img src="../../assets/reset.svg" class="rounded-start"/>
+    <div class="reset-right rounded-end d-flex justify-content-center bg-white">
+        <div class="reset-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
+<!-- <div> -->
+            <h1>Reset Password</h1>
+            <p>Enter the email address associated with your account and we will send you a link to reset your password.</p>
+                <input type="email" placeholder="Enter Yours Email" [(ngModel)]="reset_email" required/>
+
+        <button  type="button" class="btn btn-primary" (click)="resetfun()">Countinue</button>
+        <a class = "text-decoration-none" routerLink="/login" >Back to Login</a>
+    <!-- </div> -->
+        <div class="d-flex align-items-end position-relative " style="bottom: -15rem;">
+            <p>Don't have an account?</p>
+            <a class = "text-decoration-none" routerLink="/signup"> Sign Up</a>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
+</div>
+</div>

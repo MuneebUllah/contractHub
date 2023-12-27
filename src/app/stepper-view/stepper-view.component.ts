@@ -12,6 +12,5 @@ chooseAccount:boolean=true;
 companyInfo:boolean = false;
 corporateForm:boolean = false;
 companyState:boolean = false;
-companyCreatedMcg:boolean = false;
-companyName:string ='Muneeb' 
+companyCreatedMcg:boolean = false; 
 }

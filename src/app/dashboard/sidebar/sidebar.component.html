@@ -1,8 +1,20 @@
-<div class="d-flex align-items-center flex-column bg-white h-100 gap-3">
-    <a href="/dashboard"
-        class="nav-link d-flex fs-5 p-3 align-items-center">
-        <div>THE <b style="color: rgba(52, 161, 244, 1);">CONTRACT</b></div>
-        <img src="../../../assets/hamburgermenu.svg" />
+<div class="sidebar d-flex dropdown align-items-center flex-column bg-white h-100 gap-3"  [ngClass]="{'show': sidebarOpen, 'hide': !sidebarOpen}">
+    <div class="sidebar-toggle"  (click)="toggleSidebar()">
+        <img src="../../../assets/burger-menu.svg" width="45" class="pt-2"/>
+      </div>
+      <a href="/dashboard"
+      class="sidebar-title nav-link d-flex fs-4 py-4 align-items-center justify-content-around text-white w-100">
+      <div>{{name}}</div>
+      <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../../assets/hamburgermenu.svg" style="width: 35px; border: 2px solid white;" class=" rounded-circle" />
+        </div>
+        <!-- <div class=""> -->
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item text-white" href="#">{{name}}</a></li>
+            <li><a class="dropdown-item text-white" href="#">Personal Dashboard</a></li>
+            <li><a class="dropdown-item text-white" href="#" (click)="createAccount()">+ Create New Account</a></li>
+        </ul>
+    <!-- </div> -->
     </a>
     <div class="d-flex flex-column gap-5">
         <ul class=" list-group">

@@ -1,5 +1,9 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+html body{
+  height: 100vh; 
+  // font-size: 62.5%;
+ }
+body { margin: 0; font-family: 'poppins'; }
  
 input{    
   height: 45px;
@@ -8,6 +12,7 @@ input{
   color: rgba(148, 163, 184, 1);
  outline: rgba(226, 232, 240, 1);
  border: 1px solid rgba(226, 232, 240, 1);
+ padding: 10px;
 
 }
 button{
@@ -31,4 +36,19 @@ h2{
   overflow: auto; /* Enable scroll if needed */
   background-color:rgba(228, 228, 228, 1) !important; /* Fallback color */
   // background-color: rgba(0,0,0,0.4);
+}
+table{
+  font-family: 'poppins';
+  text-align: center;
+
+  td{
+    height: 90px;
+    vertical-align: middle;
+  }
+  .draft{
+    background-color:  #f3f6fd;
+    border: 1px solid  #d9e0e5;
+    border-radius: 5px;
+    padding: 10px;
+  }
 }

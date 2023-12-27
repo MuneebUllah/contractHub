@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VeriablesService } from '../veriables.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ApisService } from 'src/app/apis.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  name :string = 'Muneeb'
+  sidebarOpen: boolean = false;
+  token: any = ''
+  
+  body:any = {};
 
   ngOnInit(): void {
     
   }
 
-  constructor(private router: Router , public veriableService: VeriablesService) {}
+  constructor(private router: Router , public veriableService: VeriablesService , private http : HttpClient , private api : ApisService) {}
 
   documentfun(){
     this.veriableService.document = true;
@@ -45,6 +52,17 @@ export class SidebarComponent implements OnInit {
     this.veriableService.contact  = false;
     this.veriableService.account = true
   }
+  createAccount(){
+   this.token =  localStorage.getItem('token');
+   const headers = new HttpHeaders({
+    'authorization': 'application/json',
+    // Add any other headers as needed
+  });
+    this.body = {
+
+    }
+    this.http.post(this.api.base_url + 'api/user/createCompany' , {} , { headers: headers })
+  }
   // supportfun(){
   //   this.veriableService.document = false;
   //   this.veriableService.templete = false;
@@ -66,6 +84,9 @@ export class SidebarComponent implements OnInit {
       // You can perform further actions with the selected file here
       // For example, you can read its contents, upload it, etc.
     }
+  }
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
   }
 
 }

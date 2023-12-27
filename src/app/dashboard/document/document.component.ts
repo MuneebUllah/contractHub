@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent {
+  createFolder:boolean = false;
+
+  createFolderfun(){
+    this.createFolder = true
+  }
 
 document = [
     {
