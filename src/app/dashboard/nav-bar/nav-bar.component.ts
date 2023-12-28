@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VeriablesService } from '../veriables.service';
+import { VeriablesService } from '../../veriables.service';
 
 @Component({
   selector: 'app-nav-bar',

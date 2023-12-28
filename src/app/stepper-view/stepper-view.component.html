@@ -1,29 +1,29 @@
-<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="timeZone">
+<div class="stepper d-flex justify-content-center align-items-center " *ngIf="veriableService.timeZone">
     <div
         class="stepper-cart d-flex rounded justify-content-center align-items-center text-center py-5 px-2 gap-3 flex-column bg-white">
         <div class="d-flex align-items-center flex-column">
             <h1>🗺 What is your Preffered Time Zone?</h1>
             <p style="width: 75%;">😍 We are excited to have you on board. Lets set up your Account.</p>
         </div>
-        <div class="justify-content-center row gap-2" style="width: 450px;">
-            <input type="button" value="Automatically detect" class="col-5">
+        <div class="justify-content-center row gap-2" >
+            <input type="button" value="Automatically detect" class="col-6">
             <input type="button" value="Hawaii" class="col-5" />
-            <input type="button" value="Pacific" class="col-5" />
+            <input type="button" value="Pacific" class="col-6" />
             <input type="button" value="Mountain" class="col-5" />
-            <input type="button" value="Eastern" class="col-5" />
+            <input type="button" value="Eastern" class="col-6" />
             <input type="button" value="Central" class="col-5" />
-            <input type="button" value="Other" class="col-5" />
+            <input type="button" value="Other" class="col-6" />
 
         </div>
-        <button type="button" class="btn btn-primary">Next</button>
-        <div class="d-flex">
-        </div>
+        <button type="button" class="btn btn-primary" (click)="timeZone()">Next</button>
+        <!-- <div class="d-flex">
+        </div> -->
     </div>
 </div>
 
-<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="address">
-    <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column bg-white" style="width: 500px;">
-        <div class="d-flex justify-content-center align-items-center text-center gap-3 flex-column" style="width: 80%;">
+<div class="stepper d-flex justify-content-center align-items-center " *ngIf="veriableService.address">
+    <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column text-center gap-3 bg-white">
+        <!-- <div class="d-flex justify-content-center align-items-center text-center gap-3 flex-column"> -->
             <div class="d-flex align-items-center flex-column" style="width: 80%;">
                 <h1>🏠 What is your Address?</h1>
                 <p>The Below information is used to populate your Documents</p>
@@ -41,9 +41,9 @@
             </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
-<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="chooseAccount">
+<div class="stepper d-flex justify-content-center align-items-center h-100 w-100" *ngIf="veriableService.chooseAccount">
     <div class="stepper-cart d-flex rounded align-items-center py-5 flex-column bg-white" style="width: 400px;">
         <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" style="width: 80%;">
             <div
@@ -69,14 +69,14 @@
     </div>
 </div>
 
-<div class="stepper" *ngIf="companyInfo">
-    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
+<div class="stepper d-flex justify-content-center align-items-center" *ngIf="veriableService.companyInfo">
+    <!-- <div class="stepper-cart  h-100 w-100"> -->
+        <!-- <div class="sign-in-right  d-flex justify-content-center bg-white"> -->
             <div
-                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
+                class="stepper-cart text-start rounded d-flex justify-content-center align-items-center flex-column gap-4 bg-white">
 
                 <h1>Company Information</h1>
-                <div class=" d-flex flex-column gap-2 w-100">
+                <div class=" d-flex flex-column gap-3 w-100">
                     <label>Company Legal Name</label>
                     <input type="text" placeholder="Company Legal Name" class="w-100">
                     <label>Admin Email</label>
@@ -85,54 +85,54 @@
                 </div>
                 <div class="d-flex gap-2 w-100">
                     <button class="border-primary btn text-primary bg-white w-50">Exit</button>
-                    <button type="button" class="btn btn-primary w-50">Next</button>
+                    <button type="button" class="btn btn-primary w-50" (click)="componyInfo()">Next</button>
                 </div>
 
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
     </div>
 </div>
 
-<div class="stepper" *ngIf="corporateForm">
-    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" style="width: 33rem;">
-            <div
-                class="sign-in-right-cart text-center  d-flex justify-content-center align-items-center flex-column gap-3">
+<div class="stepper d-flex justify-content-center align-items-center " *ngIf="veriableService.corporateForm">
+    <div class="stepper-cart d-flex rounded flex-column justify-content-center align-items-center gap-3 bg-white" style="width: 33rem;">
+        <!-- <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3" > -->
+            <!-- <div
+                class="sign-in-right-cart  text-center  d-flex justify-content-center align-items-center flex-column gap-3"> -->
 
                 <h1>Corporate Form</h1>
                 <p>The Below information is used to populate your documents</p>
-                <div class="d-flex flex-wrap gap-3 ">
-                    <input type="button" value="Limited Company">
-                    <input type="button" value="Sole Company" />
-                    <input type="button" value="S-Corporation" />
-                    <input type="button" value="C-Corporation" />
-                    <input type="button" value="Professional Corporation" />
-                    <input type="button" value="Limited Liability Company" />
-                    <input type="button" value="Limited Partnership" />
-                    <input type="button" value="Endowment">
-                    <input type="button" value="Employment Benefit Plan" />
-                    <input type="button" value="Foundation" />
-                    <input type="button" value="Trust" />
-                    <input type="button" value="Keogh Plan" />
-                    <input type="button" value="Limited Liability Partnership" />
-                    <input type="button" value="Limited Liability Company" />
+                <div class="gap-3 justify-content-center row">
+                    <input type="button" value="Limited Company" class="col-5 ">
+                    <input type="button" value="Sole Company" class="col-5"/>
+                    <input type="button" value="S-Corporation" class="col-5"/>
+                    <input type="button" value="C-Corporation" class="col-5"/>
+                    <input type="button" value="Professional Corporation" class="col-5"/>
+                    <input type="button" value="Limited Liability Company" class="col-5"/>
+                    <input type="button" value="Limited Partnership" class="col-5"/>
+                    <input type="button" value="Endowment" class="col-5">
+                    <input type="button" value="Employment Benefit Plan" class="col-5"/>
+                    <input type="button" value="Foundation" class="col-5"/>
+                    <input type="button" value="Trust" class="col-5"/>
+                    <input type="button" value="Keogh Plan" class="col-5"/>
+                    <input type="button" value="Limited Liability Partnership" class="col-5"/>
+                    <input type="button" value="Limited Liability Company" class="col-5"/>
 
                 </div>
 
                 <div class="d-flex gap-2 w-100">
                     <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-                    <button type="button" class="btn btn-primary w-50">Next</button>
+                    <button type="button" class="btn btn-primary w-50" (click)="companyCarporate()">Next</button>
                 </div>
             </div>
-        </div>
-    </div>
+        <!-- </div> -->
+    <!-- </div> -->
 </div>
 
-<div class="stepper" *ngIf="companyState">
-    <div class="stepper-cart d-flex justify-content-center align-items-center h-100 w-100">
-        <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
+<div class="stepper  d-flex justify-content-center align-items-center" *ngIf="veriableService.companyState">
+    <div class="stepper-cart d-flex rounded justify-content-center align-items-center bg-white gap-3 flex-column">
+        <!-- <div class="sign-in-right rounded d-flex justify-content-center bg-white p-3">
             <div
-                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-3">
+                class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-3"> -->
 
                 <h1>In What State was your Company Formed?</h1>
                 <p>The Below information is used to populate documents.</p>
@@ -145,11 +145,11 @@
                 </div> -->
                 <div class="d-flex gap-2 w-100">
                     <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-                    <button type="button" class="btn btn-primary w-50">Next</button>
+                    <button type="button" class="btn btn-primary w-50" (click)="companyState()">Next</button>
                 </div>
 
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
     </div>
 </div>
 

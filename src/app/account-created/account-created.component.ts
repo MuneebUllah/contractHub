@@ -28,8 +28,7 @@ export class AccountCreatedComponent implements OnInit{
       console.log(data);
     })
     localStorage.setItem('token' , tokens);
-    // console.log(this.token);
-    this.router.navigate(['/dashboard' , this.token]);
+    this.router.navigate(['/dashboard']);
   }
 
 }

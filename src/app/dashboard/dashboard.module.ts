@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SettingComponent } from './setting/setting.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AccountComponent } from './account/account.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AccountComponent } from './account/account.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule
     // dragDropModule
   ]
 })

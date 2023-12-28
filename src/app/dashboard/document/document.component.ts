@@ -14,6 +14,7 @@ export class DocumentComponent {
 
 document = [
     {
+      id:0,
       name : 'Muneeb',
       email : 'muneebjutt0099@gmail.com',
       status : 'individual',
@@ -21,6 +22,7 @@ document = [
       action : '../../../assets/delete.svg'
     },
     {
+      id:1,
       name : 'Umar',
       email : 'Umar@gmail.com',
       status : 'individual',
@@ -28,6 +30,7 @@ document = [
       action : '../../../assets/delete.svg'
     },
     {
+      id:2,
       name : 'Ali',
       email : 'Ali@gmail.com',
       status : 'individual',
@@ -35,6 +38,7 @@ document = [
       action : '../../../assets/delete.svg'
     },
     {
+      id:3,
       name : 'Rizwan',
       email : 'Rizwan0099@gmail.com',
       status : 'individual',
@@ -42,4 +46,8 @@ document = [
       action : '../../../assets/delete.svg'
     }
   ]
+
+  deleteRow(id:any){  
+      this.document.splice(id, 1)
+  }
 }

@@ -38,8 +38,8 @@ export class SignInComponent implements OnInit {
     };
     this.http.post(this.api.base_url + 'api/user/login', this.body).subscribe((data:any) => {
       // console.log(data)
-      localStorage.setItem('tokens' , data.Token)
-      this.router.navigate(['/dashboard' , data.Token]);
+      localStorage.setItem('token' , data.Token)
+      this.router.navigate(['/dashboard']);
   })
 }
   signupfun() {  

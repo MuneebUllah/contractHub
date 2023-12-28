@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VeriablesService } from '../veriables.service';
+import { VeriablesService } from '../../veriables.service';
 // import {ngx-doc-viewer} from ''
 @Component({
   selector: 'app-dashboard',

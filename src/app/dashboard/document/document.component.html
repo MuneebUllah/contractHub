@@ -30,7 +30,7 @@
         </td>
         <td>{{items.email}}</td>
         <td>{{items.with}}</td>
-        <td><img src="{{items.action}}" /></td>
+        <td><img src="{{items.action}}" (click)="deleteRow(items.id)" style="cursor: pointer;"/></td>
       </tr>
     </tbody>
   </table>

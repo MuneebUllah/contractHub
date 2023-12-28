@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { VeriablesService } from '../veriables.service';
+import { VeriablesService } from '../../veriables.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApisService } from 'src/app/apis.service';
 @Component({
@@ -11,8 +11,10 @@ import { ApisService } from 'src/app/apis.service';
 export class SidebarComponent implements OnInit {
   name :string = 'Muneeb'
   sidebarOpen: boolean = false;
-  token: any = ''
-  
+  token: any = localStorage.getItem('token')
+   headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + this.token,
+  });
   body:any = {};
 
   ngOnInit(): void {
@@ -25,7 +27,14 @@ export class SidebarComponent implements OnInit {
     this.veriableService.document = true;
     this.veriableService.templete = false;
     this.veriableService.setting  = false;
-    this.veriableService.contact  = false
+    this.veriableService.contact  = false;
+    const token = localStorage.getItem('token')
+    
+this.http.get(this.api.base_url + 'api/user/getAllDocuments', { headers: this.headers })
+  .subscribe((data: any) => {
+    console.log(data);
+  });
+      console.log(token)
   }
   templetefun(){
     this.veriableService.document = false;
@@ -52,29 +61,21 @@ export class SidebarComponent implements OnInit {
     this.veriableService.contact  = false;
     this.veriableService.account = true
   }
-  createAccount(){
-   this.token =  localStorage.getItem('token');
-   const headers = new HttpHeaders({
-    'authorization': 'application/json',
-    // Add any other headers as needed
-  });
-    this.body = {
+  createAccount(event:Event){
+    event.preventDefault()
+    this.veriableService.corporateForm = false 
+    this.veriableService.companyInfo = true 
+    this.veriableService.companyState = false 
+    this.veriableService.timeZone = false 
+    this.veriableService.address = false 
+    this.router.navigate(['/new-account']);
+    console.log("function Called")
 
-    }
-    this.http.post(this.api.base_url + 'api/user/createCompany' , {} , { headers: headers })
+    // this.body = {
+
+    // }
+    // this.http.post(this.api.base_url + 'api/user/createCompany' , {} , { headers: this.headers })
   }
-  // supportfun(){
-  //   this.veriableService.document = false;
-  //   this.veriableService.templete = false;
-  //   this.veriableService.setting  = true;
-  //   this.veriableService.contact  = false;
-  // }
-  // logoutfun(){
-  //   this.veriableService.document = false;
-  //   this.veriableService.templete = false;
-  //   this.veriableService.setting  = true;
-  //   this.veriableService.contact  = false;
-  // }
   selectedFile: File | null = null;
 
   onFileSelected(event: any): void {
@@ -87,6 +88,10 @@ export class SidebarComponent implements OnInit {
   }
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
+  }
+
+  logout(){
+    localStorage.clear();
   }
 
 }

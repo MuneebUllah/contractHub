@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDrag } from '@angular/cdk/drag-drop';
+import { ContactForm } from './contactForm';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -7,6 +8,10 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
 
 })
 export class ContactComponent {
+  companyContactForm:boolean = true;
+  individualContactForm:boolean = false;
+  individualForm : ContactForm = new ContactForm();
+  companyForm : ContactForm = new ContactForm();
 
   contact = [
     {
@@ -34,5 +39,9 @@ export class ContactComponent {
       action : '../../../assets/delete.svg'
     }
   ]
+
+  companyFormFun(){
+    console.log("function Called" + this.companyForm);
+  }
 }
 
