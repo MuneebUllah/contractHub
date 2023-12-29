@@ -19,6 +19,11 @@ export class VeriablesService implements OnInit {
  public corporateForm:boolean = false;
  public companyState:boolean = false;
  public companyCreatedMcg:boolean = false; 
+ public reg_name: any = '';
+ public reg_password: string = '';
+ public reg_email: string = '';
+ public companyName:any =[]
+ 
   constructor() { }
 
   getActiveVariableName(): string {

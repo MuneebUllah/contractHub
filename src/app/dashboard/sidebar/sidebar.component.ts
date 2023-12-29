@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 import { VeriablesService } from '../../veriables.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApisService } from 'src/app/apis.service';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { sidebarService } from './sidebar.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  name :string = 'Muneeb'
+  // name : Array = ['Muneeb']
   sidebarOpen: boolean = false;
   token: any = localStorage.getItem('token')
    headers = new HttpHeaders({
@@ -21,7 +24,7 @@ export class SidebarComponent implements OnInit {
     
   }
 
-  constructor(private router: Router , public veriableService: VeriablesService , private http : HttpClient , private api : ApisService) {}
+  constructor(private router: Router , public veriableService: VeriablesService , private http : HttpClient , private api : ApisService , public sidebarServices:sidebarService) {}
 
   documentfun(){
     this.veriableService.document = true;
@@ -62,20 +65,39 @@ this.http.get(this.api.base_url + 'api/user/getAllDocuments', { headers: this.he
     this.veriableService.account = true
   }
   createAccount(event:Event){
-    event.preventDefault()
+    event.preventDefault();
     this.veriableService.corporateForm = false 
     this.veriableService.companyInfo = true 
     this.veriableService.companyState = false 
     this.veriableService.timeZone = false 
     this.veriableService.address = false 
+    const token = localStorage.getItem('token')
     this.router.navigate(['/new-account']);
-    console.log("function Called")
+    // console.log("function Called")
 
     // this.body = {
-
     // }
     // this.http.post(this.api.base_url + 'api/user/createCompany' , {} , { headers: this.headers })
   }
+  // getCompanies(): Observable<any> {
+  //   const headers = new HttpHeaders({
+  //     'authorization': `${localStorage.getItem('token')}`
+  //   });
+  //   // console.log("function Called")
+
+  //    return this.http.get(this.api.base_url + 'api/user/getUserCompanies', { headers }).pipe(
+  //     map((response: any) => {
+  //       console.log(response);
+  //       // return response;
+  //     })
+  //   );
+  // }
+getCompaniesFun(){
+  this.sidebarServices.getCompanies().subscribe((data) => {
+    // Process the response data here
+    console.log( this.veriableService.companyName.push( data.Companies));
+  });
+}
   selectedFile: File | null = null;
 
   onFileSelected(event: any): void {

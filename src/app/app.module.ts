@@ -18,7 +18,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   declarations: [
     AppComponent,
     SignInComponent,
-    StepperViewComponent,
     AccountCreatedComponent,
     ResetComponent,
     ChangePasswordComponent,

@@ -19,10 +19,7 @@ const routes: Routes = [
     path:'signup',
     component:SignInComponent
   },
-  {
-    path:'new-account',
-    component:StepperViewComponent
-  },
+  
   {
     path:'verify/:id',
     component:AccountCreatedComponent
@@ -40,7 +37,11 @@ const routes: Routes = [
     component:ChangePasswordComponent
   },
   {
-    path:'dashboard',
+    path:'new-account',
+    component:StepperViewComponent
+  },
+  {
+    path:'dashboard/:id',
     canActivate: [AuthGuard],
     component:DashboardComponent,
     children:[
@@ -66,10 +67,6 @@ const routes: Routes = [
       },
     ]
   },
-  // {
-  //   path:'dashboard/:section',
-  //   component:DashboardComponent
-  // },
   
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   { path: '**', redirectTo: '/login' }

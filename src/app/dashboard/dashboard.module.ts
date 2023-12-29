@@ -12,6 +12,7 @@ import { SettingComponent } from './setting/setting.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AccountComponent } from './account/account.component';
 import { FormsModule } from '@angular/forms';
+import { StepperViewComponent } from '../stepper-view/stepper-view.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     SettingComponent,
     AccountComponent,
+    StepperViewComponent
   ],
   imports: [
     CommonModule,

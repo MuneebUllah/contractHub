@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 import { ContactForm } from './contactForm';
 @Component({
@@ -7,12 +7,15 @@ import { ContactForm } from './contactForm';
   styleUrls: ['./contact.component.scss'],
 
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
   companyContactForm:boolean = true;
   individualContactForm:boolean = false;
   individualForm : ContactForm = new ContactForm();
   companyForm : ContactForm = new ContactForm();
 
+  ngOnInit(): void {
+    
+  }
   contact = [
     {
       name : 'Muneeb',
@@ -40,8 +43,19 @@ export class ContactComponent {
     }
   ]
 
-  companyFormFun(){
-    console.log("function Called" + this.companyForm);
+  companyFormSubmittedFun(){
+    console.log( this.companyForm.companyName);
+  }
+  individualFormSubmittedFun(){
+    console.log( this.individualForm.name);
+  }
+  companyButtonFun(){
+    this.companyContactForm= true;
+    this.individualContactForm = false;
+  }
+  individualButtonFun(){
+    this.companyContactForm= false;
+    this.individualContactForm = true;
   }
 }
 

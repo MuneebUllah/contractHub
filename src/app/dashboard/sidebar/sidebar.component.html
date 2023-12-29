@@ -4,15 +4,15 @@
       </div>
       <a href="/dashboard"
       class="sidebar-title nav-link d-flex fs-4 py-4 align-items-center justify-content-around text-white w-100">
-      <div>{{name}}</div>
+      <div>{{veriableService.reg_name}}</div>
       <div class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../../../assets/hamburgermenu.svg" style="width: 35px; border: 2px solid white;" class=" rounded-circle" />
+          <img src="../../../assets/hamburgermenu.svg" style="width: 35px; border: 2px solid white;" class=" rounded-circle" (click)="getCompaniesFun()"/>
         </div>
         <!-- <div class=""> -->
-        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item text-white" href="#">{{name}}</a></li>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li *ngFor="let items of veriableService.companyName" let i = index><a class="dropdown-item text-white" href="#">{{items.compName}}</a></li>
             <li><a class="dropdown-item text-white" href="#">Personal Dashboard</a></li>
-            <li><span class="dropdown-item text-white"  (click)="createAccount($event)">+ Create New Account</span></li>
+            <li><span class="dropdown-item text-white" (click)="createAccount($event)">+ Create New Account</span></li>
         </ul>
     <!-- </div> -->
     </a>
@@ -51,7 +51,7 @@
             <label for="uploadIndividualFile">
                 <div class="sidebar-middle-content d-flex text-center align-items-center rounded p-4 flex-column ">
                     <img src="../../../assets/Upload.svg"/>
-                    <p >Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span> to {{name}} Dashboard</p>
+                    <p >Upload <span style="color: rgba(52, 161, 244, 1);"> Document </span> to {{veriableService.companyName}} Dashboard</p>
                     <input class="d-none" type="file" id="uploadIndividualFile" name="uploadIndividualFile"
                         accept="application/pdf" (change)="onFileSelected($event)" />
                 </div>
