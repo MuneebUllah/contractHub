@@ -1,0 +1,16 @@
+<div class="alert-dialog-main">
+    <div class="heading">
+        <span [class.alone]="!data?.message">{{data?.title}}!</span>
+    </div>
+    <div class="text" *ngIf="data?.message">
+        {{data?.message}}
+    </div>
+    <div class="icon">
+        <img [src]="data?.icon == icons.success ? iconPaths.success : data?.icon == icons.error ?
+         iconPaths.error : data.icon == icons.warning ? iconPaths.warning : iconPaths.question
+        " alt="">
+    </div>
+    <div class="dialog-button single-submit-button">
+        <button class="submit-btn" (click)="closeDialog()">{{data?.submitBtnMsg}}</button>
+    </div>
+</div>

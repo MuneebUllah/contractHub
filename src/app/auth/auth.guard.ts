@@ -15,15 +15,12 @@ export class AuthGuard implements CanActivate , OnInit {
     state: RouterStateSnapshot
   ): boolean {
     if (this.authService.isTokenExpired()) {
-      // Token is expired, redirect to the login page or show an error message
+      localStorage.clear();
       this.router.navigate(['/login']);
   
       return false;
     }
 
-    
-
-    // Token is valid, allow access to the route
     return true;
   }
 

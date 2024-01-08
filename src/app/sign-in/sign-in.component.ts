@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApisService } from '../apis.service';
 import { AuthService } from '../auth/auth.service';
 import { VeriablesService } from '../veriables.service';
+import { RoutingService } from '../Services/routing.service';
+import { StorageService } from '../Services/storage.service';
+import { SignIn } from '../Shared/models/signIn.model';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -11,48 +14,26 @@ import { VeriablesService } from '../veriables.service';
   ]
 })
 export class SignInComponent implements OnInit {
-  
-  logIn: boolean = false;
-  signUp: boolean = false;
-  reset: boolean = false;
-  stepperTimeZone: boolean = false;
-  checkboxChecked:boolean = false;
-  body = {  };
-  data = {};
+  user:SignIn =new SignIn();
 
-  constructor(public VeriablesService :VeriablesService , private route: ActivatedRoute, private http: HttpClient , private api :ApisService , private router:Router , private auth: AuthService) { }
-  private tokens= localStorage.getItem('token');
+  constructor(public VeriablesService: VeriablesService, public storage: StorageService, public routingService: RoutingService, private route: ActivatedRoute,  private api: ApisService,  private auth: AuthService) { }
 
-  ngOnInit() {
-    this.route.url.subscribe(segments => {
-      this.logIn = segments[0].path === 'login';
-      this.signUp = segments[0].path === 'signup';
-    });
+  ngOnInit() { }
+  isSignInButtonEnabled(): string | boolean {
+    return (
+      this.user.email &&
+      this.user.password &&
+      this.user.checkboxChecked
+    );
   }
 
   logInfun() {
-    this.body = {
-      email:this.VeriablesService.reg_email,
-      password:this.VeriablesService.reg_password,
-    };
-    this.http.post(this.api.base_url + 'api/user/login', this.body).subscribe((data:any) => {
-      if(data ){
-      console.log(data)
-      localStorage.setItem('token' , data.Token)
-      this.router.navigate([`/dashboard/${data.Token}` ]);
-   } })
-}
-  signupfun() {  
-    this.body = {
-    name:this.VeriablesService.reg_name,
-    email:this.VeriablesService.reg_email,
-    password:this.VeriablesService.reg_password,
-  };
-  console.log(this.body);
-  this.http.post(this.api.base_url + 'api/user/register', this.body).subscribe(data => {
-    // const content = data.Token
-    // localStorage.setItem('t)
-
-  })
+    this.api.signIn(this.user).subscribe((data:any) => {
+      next:(
+      localStorage.setItem('token' , data.Token),
+      this.routingService.goToDashboard(data.Token)
+    )}
+    )
   }
+
 }

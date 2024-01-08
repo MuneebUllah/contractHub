@@ -13,6 +13,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AccountComponent } from './account/account.component';
 import { FormsModule } from '@angular/forms';
 import { StepperViewComponent } from '../stepper-view/stepper-view.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { ViewDocComponent } from './view-doc/view-doc.component';
 
 
 @NgModule({
@@ -25,13 +27,15 @@ import { StepperViewComponent } from '../stepper-view/stepper-view.component';
     ContactComponent,
     SettingComponent,
     AccountComponent,
-    StepperViewComponent
+    StepperViewComponent,
+    ViewDocComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    NgxDocViewerModule
     // dragDropModule
   ]
 })

@@ -13,11 +13,13 @@ import { AccountCreatedComponent } from './account-created/account-created.compo
 import { AuthGuard } from './auth/auth.guard';
 import { ResetComponent } from './reset/reset.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ViewDocComponent } from './dashboard/view-doc/view-doc.component';
 
 const routes: Routes = [
   {
     path:'signup',
-    component:SignInComponent
+    component:SignUpComponent
   },
   
   {
@@ -64,6 +66,10 @@ const routes: Routes = [
       {
         path:'account',
         component:AccountComponent
+      },
+      {
+        path:'view-doc',
+        component:ViewDocComponent
       },
     ]
   },

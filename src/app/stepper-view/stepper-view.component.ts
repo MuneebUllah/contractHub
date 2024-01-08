@@ -4,6 +4,7 @@ import { StepperView } from './stepper-view';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApisService } from '../apis.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RoutingService } from '../Services/routing.service';
 
 @Component({
   selector: 'app-stepper-view',
@@ -11,9 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./stepper-view.component.scss']
 })
 export class StepperViewComponent implements OnInit {
+  corporateActiveButton: number | null = null;
+  timeActiveButton: number | null = null;
   private token = localStorage.getItem('token');
-  model :StepperView = new StepperView() 
-  constructor(public veriableService : VeriablesService ,public route : ActivatedRoute , private router : Router ,private http :HttpClient , private api:ApisService){}
+  stepperViewBody :StepperView = new StepperView() 
+corpactiveButton: any;
+activeButton: any;
+  constructor(public veriableService : VeriablesService ,public routingService:RoutingService , public route : ActivatedRoute , private router : Router ,private http :HttpClient , private api:ApisService){}
 ngOnInit(): void {
   
 }
@@ -57,23 +62,52 @@ ngOnInit(): void {
     this.veriableService.address = false 
     this.veriableService.companyCreatedMcg = true 
   }
-  selectTimeZone(timeZone: string): void {
-    this.model.comptimeZone = timeZone;
-    // console.log(this.timeZoneValue);
+  selectTimeZone(timeZone: string , buttonNumber: number): void {
+    this.stepperViewBody.comptimeZone = timeZone;
+    if (this.timeActiveButton === buttonNumber) {
+      // If the same button is clicked again, deactivate it
+      this.timeActiveButton = null;
+    } else {
+      // Otherwise, activate the clicked button
+      this.timeActiveButton = buttonNumber;
+    }
   }
-  selectCorporateForm(corporate: string): void {
-    this.model.corporateForm = corporate;
+  
+  isFormValid(): boolean {
+    return this.stepperViewBody.compName && this.stepperViewBody.compEmail;
+  }
+  isTimeFormValid(): boolean {
+    return this.timeActiveButton !== null;
+  }
+  isCorporateFormValid(): boolean {
+    return this.corporateActiveButton !== null;
+  }
+  exit(){
+    this.routingService.goToDashboard(localStorage.getItem('token'))
+  }
+  selectCorporateForm(corporate: string , buttonNumber:number): void {
+    this.stepperViewBody.corporateForm = corporate;
+    if (this.corporateActiveButton === buttonNumber) {
+      // If the same button is clicked again, deactivate it
+      this.corporateActiveButton = null;
+    } else {
+      // Otherwise, activate the clicked button
+      this.corporateActiveButton = buttonNumber;
+    }
+
 
   }
+
   accountCreatedMcg(){
-    console.log(this.model)
+    console.log(this.stepperViewBody)
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `${localStorage.getItem('token')}` 
     });
-    this.http.post(this.api.base_url + 'api/user/createCompany', this.model , { headers }).subscribe((data:any) =>{
+    this.api.stepperView( this.stepperViewBody , Headers ).subscribe(
+     { next:(data:any) =>{
       this.veriableService.companyName.push(data.compName)
       this.router.navigate([`/dashboard/${localStorage.getItem('token')}`])
-    });
+    }});
 }
 }

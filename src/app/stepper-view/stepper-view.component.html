@@ -6,16 +6,16 @@
             <p style="width: 75%;">😍 We are excited to have you on board. Lets set up your Account.</p>
         </div>
         <div class="justify-content-center row gap-2" >
-            <input type="button" value="Automatically detect" class="col-6" (click)="selectTimeZone('Automatically detect')">
-            <input type="button" value="Hawaii" class="col-5" (click)="selectTimeZone('Hawaii')">
-            <input type="button" value="Pacific" class="col-6" (click)="selectTimeZone('Pacific')">
-            <input type="button" value="Mountain" class="col-5" (click)="selectTimeZone('Mountain')">
-            <input type="button" value="Eastern" class="col-6" (click)="selectTimeZone('Eastern')">
-            <input type="button" value="Central" class="col-5" (click)="selectTimeZone('Central')">
-            <input type="button" value="Other" class="col-6" (click)="selectTimeZone('Other')">
+            <input type="button" value="Automatically detect" class="col-6" (click)="selectTimeZone('Automatically detect', 1)"  [class.active]="timeActiveButton === 1">
+            <input type="button" value="Hawaii" class="col-5" (click)="selectTimeZone('Hawaii' , 2)"  [class.active]="timeActiveButton === 2">
+            <input type="button" value="Pacific" class="col-6" (click)="selectTimeZone('Pacific' , 3)"  [class.active]="timeActiveButton === 3">
+            <input type="button" value="Mountain" class="col-5" (click)="selectTimeZone('Mountain', 4)"  [class.active]="timeActiveButton === 4">
+            <input type="button" value="Eastern" class="col-6" (click)="selectTimeZone('Eastern', 5)"  [class.active]="timeActiveButton === 5">
+            <input type="button" value="Central" class="col-5" (click)="selectTimeZone('Central' , 6)"  [class.active]="timeActiveButton === 6">
+            <input type="button" value="Other" class="col-6" (click)="selectTimeZone('Other' , 7)"  [class.active]="timeActiveButton === 7">
 
         </div>
-        <button type="button" class="btn btn-primary" (click)="timeZone()">Next</button>
+        <button type="button" class="btn btn-primary" (click)="timeZone()" [disabled]="!isTimeFormValid()">Next</button>
         <!-- <div class="d-flex">
         </div> -->
     </div>
@@ -29,14 +29,14 @@
                 <p>The Below information is used to populate your Documents</p>
             </div>
             <div class="row justify-content-center gap-2">
-                <input type="text" placeholder="Street Address" class="col-10" [(ngModel)]="model.compAddress.street">
-                <input type="text" placeholder="City" class="col-5" [(ngModel)]="model.compAddress.city"/>
-                <input type="text" placeholder="State" class="col-5" [(ngModel)]="model.compAddress.state"/>
-                <input type="text" placeholder="Zip" class="col-5" [(ngModel)]="model.compAddress.Zip"/>
-                <input type="text" placeholder="Country" class="col-5" [(ngModel)]="model.compAddress.country"/>
+                <input type="text" placeholder="Street Address" class="col-10" [(ngModel)]="stepperViewBody.compAddress.street">
+                <input type="text" placeholder="City" class="col-5" [(ngModel)]="stepperViewBody.compAddress.city"/>
+                <input type="text" placeholder="State" class="col-5" [(ngModel)]="stepperViewBody.compAddress.state"/>
+                <input type="text" placeholder="Zip" class="col-5" [(ngModel)]="stepperViewBody.compAddress.Zip"/>
+                <input type="text" placeholder="Country" class="col-5" [(ngModel)]="stepperViewBody.compAddress.country"/>
             </div>
             <div class="d-flex gap-2 w-100">
-                <button class="border-primary btn text-primary bg-white ">Skip</button>
+                <button class="border-primary btn text-primary bg-white" (click)="address()">Skip</button>
                 <button type="button" class="btn btn-primary" (click)="address()">Next</button>
             </div>
         </div>
@@ -72,25 +72,19 @@
 <div class="stepper d-flex justify-content-center align-items-center" *ngIf="veriableService.companyInfo">
     <!-- <div class="stepper-cart  h-100 w-100"> -->
         <!-- <div class="sign-in-right  d-flex justify-content-center bg-white"> -->
-            <div
-                class="stepper-cart text-start rounded d-flex justify-content-center align-items-center flex-column gap-4 bg-white">
-
+            <div class="stepper-cart text-start rounded d-flex justify-content-center align-items-center flex-column gap-4 bg-white">
                 <h1>Company Information</h1>
-                <div class=" d-flex flex-column gap-3 w-100">
-                    <label>Company Legal Name</label>
-                    <input type="text" placeholder="Company Legal Name" class="w-100" [(ngModel)]="model.compName">
-                    <label>Admin Email</label>
-                    <input type="text" placeholder="Admin Email" class="w-100" [(ngModel)]="model.compEmail"/>
-
+                <div class="d-flex flex-column gap-3 w-100">
+                  <label>Company Legal Name</label>
+                  <input type="text" placeholder="Company Legal Name" class="w-100" [(ngModel)]="stepperViewBody.compName" required>
+                  <label>Admin Email</label>
+                  <input type="email" placeholder="Admin Email" class="w-100" [(ngModel)]="stepperViewBody.compEmail" required/>
                 </div>
                 <div class="d-flex gap-2 w-100">
-                    <button class="border-primary btn text-primary bg-white w-50">Exit</button>
-                    <button type="button" class="btn btn-primary w-50" (click)="componyInfo()">Next</button>
+                  <button class="border-primary btn text-primary bg-white w-50" (click)="exit()">Exit</button>
+                  <button type="button" class="btn btn-primary w-50" [disabled]="!isFormValid()" (click)="componyInfo()">Next</button>
                 </div>
-
-            <!-- </div> -->
-        <!-- </div> -->
-    </div>
+              </div>
 </div>
 
 <div class="stepper d-flex justify-content-center align-items-center " *ngIf="veriableService.corporateForm">
@@ -102,26 +96,26 @@
                 <h1>Corporate Form</h1>
                 <p>The Below information is used to populate your documents</p>
                 <div class="gap-3 justify-content-center row">
-                    <input type="button" value="Limited Company" class="col-5 " (click)="selectCorporateForm('Limited Company')">
-                    <input type="button" value="Sole Company" class="col-5" (click)="selectCorporateForm('Sole Company')"/>
-                    <input type="button" value="S-Corporation" class="col-5" (click)="selectCorporateForm('S-Corporation')"/>
-                    <input type="button" value="C-Corporation" class="col-5" (click)="selectCorporateForm('C-Corporation')"/>
-                    <input type="button" value="Professional Corporation" class="col-5" (click)="selectCorporateForm('Professional Corporation')"/>
-                    <input type="button" value="Limited Liability Company" class="col-5" (click)="selectCorporateForm('Limited Liability Company')"/>
-                    <input type="button" value="Limited Partnership" class="col-5" (click)="selectCorporateForm('Limited Partnership')"/>
-                    <input type="button" value="Endowment" class="col-5" (click)="selectCorporateForm('Endowment')">
-                    <input type="button" value="Employment Benefit Plan" class="col-5" (click)="selectCorporateForm('Employment Benefit Plan')"/>
-                    <input type="button" value="Foundation" class="col-5" (click)="selectCorporateForm('Foundation')"/>
-                    <input type="button" value="Trust" class="col-5" (click)="selectCorporateForm('Trust')"/>
-                    <input type="button" value="Keogh Plan" class="col-5" (click)="selectCorporateForm('Keogh Plan')"/>
-                    <input type="button" value="Limited Liability Partnership" class="col-5" (click)="selectCorporateForm('Limited Liability Partnership')"/>
-                    <input type="button" value="Limited Liability Company" class="col-5" (click)="selectCorporateForm('Limited Liability Company')"/>
+                    <input type="button" value="Limited Company" class="col-5 " (click)="selectCorporateForm('Limited Company' , 1)" [class.active]="corporateActiveButton === 1">
+                    <input type="button" value="Sole Company" class="col-5" (click)="selectCorporateForm('Sole Company' , 2)" [class.active]="corporateActiveButton === 2"/>
+                    <input type="button" value="S-Corporation" class="col-5" (click)="selectCorporateForm('S-Corporation', 3)" [class.active]="corporateActiveButton === 3"/>
+                    <input type="button" value="C-Corporation" class="col-5" (click)="selectCorporateForm('C-Corporation' ,4) " [class.active]="corporateActiveButton === 4"/>
+                    <input type="button" value="Professional Corporation" class="col-5" (click)="selectCorporateForm('Professional Corporation' , 5)" [class.active]="corporateActiveButton === 5"/>
+                    <input type="button" value="Limited Liability Company" class="col-5" (click)="selectCorporateForm('Limited Liability Company' ,6) " [class.active]="corporateActiveButton === 6"/>
+                    <input type="button" value="Limited Partnership" class="col-5" (click)="selectCorporateForm('Limited Partnership' , 7)" [class.active]="corporateActiveButton === 7"/>
+                    <input type="button" value="Endowment" class="col-5" (click)="selectCorporateForm('Endowment' ,8)" [class.active]="corporateActiveButton === 8">
+                    <input type="button" value="Employment Benefit Plan" class="col-5" (click)="selectCorporateForm('Employment Benefit Plan' ,9 )" [class.active]="corporateActiveButton === 9"/>
+                    <input type="button" value="Foundation" class="col-5" (click)="selectCorporateForm('Foundation' , 10)" [class.active]="corporateActiveButton === 10"/>
+                    <input type="button" value="Trust" class="col-5" (click)="selectCorporateForm('Trust' , 11)" [class.active]="corporateActiveButton === 11"/>
+                    <input type="button" value="Keogh Plan" class="col-5" (click)="selectCorporateForm('Keogh Plan' , 12)" [class.active]="corporateActiveButton === 12"/>
+                    <input type="button" value="Limited Liability Partnership" class="col-5" (click)="selectCorporateForm('Limited Liability Partnership' , 13)" [class.active]="corporateActiveButton === 13"/>
+                    <input type="button" value="Limited Liability Company" class="col-5" (click)="selectCorporateForm('Limited Liability Company' , 14)" [class.active]="corporateActiveButton === 14"/>
 
                 </div>
 
                 <div class="d-flex gap-2 w-100">
-                    <button class="border-primary btn text-primary bg-white w-50">Skip</button>
-                    <button type="button" class="btn btn-primary w-50" (click)="companyCarporate()">Next</button>
+                    <button class="border-primary btn text-primary bg-white w-50" (click)="companyCarporate()">Skip</button>
+                    <button type="button" class="btn btn-primary w-50" (click)="companyCarporate()" [disabled]="!isCorporateFormValid()" >Next</button>
                 </div>
             </div>
         <!-- </div> -->
@@ -136,7 +130,7 @@
 
                 <h1>In What State was your Company Formed?</h1>
                 <p>The Below information is used to populate documents.</p>
-                <input type="address" placeholder="New York...." class="w-100" [(ngModel)]="model.compAddress">
+                <input type="address" placeholder="New York...." class="w-100" [(ngModel)]="stepperViewBody.compAddress">
                 <!-- <div class=" d-flex flex-column gap-2 w-100">
                     <label>Company Legal Name</label>
                     <label>Admin Email</label>
@@ -144,7 +138,7 @@
              
                 </div> -->
                 <div class="d-flex gap-2 w-100">
-                    <button class="border-primary btn text-primary bg-white w-50">Skip</button>
+                    <button class="border-primary btn text-primary bg-white w-50" (click)="companyState()">Skip</button>
                     <button type="button" class="btn btn-primary w-50" (click)="companyState()">Next</button>
                 </div>
 
@@ -160,7 +154,7 @@
             <div
                 class="sign-in-right-cart text-start  d-flex justify-content-center align-items-center flex-column gap-2">
                 <img src="../../assets/Check.svg" />
-                <h1>Thanks, {{model.compName}}</h1>
+                <h1>Thanks, {{stepperViewBody.compName}}</h1>
                 <p>Your new company account is ready to use.</p>
                 <!-- <div class="d-flex gap-2 w-100"> -->
                 <button type="button" class="btn btn-primary w-50" (click)="accountCreatedMcg()">Lets go!</button>

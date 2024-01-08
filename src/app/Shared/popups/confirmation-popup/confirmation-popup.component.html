@@ -1,0 +1,10 @@
+<div class="model">
+    <div class="closeDialog" (click)="closeModel()">
+        <img src="../../../../assets/images/chats/cancel.svg" alt="close">
+    </div>
+    <span class="question">Are you sure you want to do this?</span>
+    <div class="option-buttons">
+        <button class="yes" (click)="onConfirm()">Yes</button>
+        <button class="no" (click)="closeModel()">No</button>
+    </div>
+</div>

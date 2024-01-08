@@ -28,20 +28,20 @@ export class AuthService implements OnInit {
     clearTimeout(this.inactivityTimeout);
     this.inactivityTimeout = setTimeout(() => {
       this.inactivityTimerExpired.emit(true);
-    },  60 * 1000); 
+    }, 30 * 60 * 1000); 
   }
 
   isTokenExpired(): any {
-    if(this.token === null){
-    return true; 
-  }
-  // else if(this.inactivityTimerExpired){
-  //   return true
+  //   if(this.token === null){
+  //   return true; 
   // }
-  else{
+  // // else if(this.inactivityTimerExpired){
+  // //   return true
+  // // }
+  // else{
 
-    return false;
-  }
+  //   return false;
+  // }
 }
 }
 

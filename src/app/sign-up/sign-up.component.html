@@ -1,0 +1,28 @@
+<div class="sign-in d-flex justify-content-center align-items-center " style="height: 100vh;" >
+    <div class="sign-in-cart d-flex " >
+        <img src="../../assets/SignIn.png" class="rounded-start"/>
+    <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
+        <div class="sign-in-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
+
+            <h1>Sign Up for an Account</h1>
+            <!-- <div > --><input type="text" placeholder="Enter Yours Name" [(ngModel)]="user.name" />
+            
+            <input type="email" placeholder="Enter Yours Email" [(ngModel)]="user.email"/>
+            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="user.password"/>
+            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="user.cnfrmPassword"/>
+            <p>Your password must have at least 8 characters</p>
+            <div class="d-flex">
+                <input type="checkbox" style="width: 25%; height: 30px;" [(ngModel)]="user.checkboxChecked" />
+                <p>By creating an account means you agree to the <b> Terms & Conditions </b> and our <b> Privacy Policy</b></p>
+              </div>
+              
+              <button type="button" class="btn btn-primary" (click)="signupfun()" [disabled]="!isRegisterButtonEnabled()">Register</button>
+              
+              <div [routerLinkActive]="['link-active']" class="d-flex">
+                <p>Already have an account?</p>
+                <a  routerLink="/login">Log In</a>
+              </div>
+    </div>
+</div>
+</div>
+</div>

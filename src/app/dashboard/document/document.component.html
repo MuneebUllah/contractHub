@@ -2,13 +2,19 @@
 <div class="bg-white rounded  justify-content-between align-items-center gap-4 p-2" style="height: 80vh ; width:20% ;">
   <div class="d-flex justify-content-between ">
   <span>Folder</span>
-  
   <img src="../../../assets/add_button.svg" [ngClass]="createFolder ? 'create-folder' : ''" (click)="createFolderfun()"/>
+</div>
   <div *ngIf="createFolder" class="bg-white p-3" style="height: 100vh; width: 100vh;">
     <label>Create Folder</label>
     <input placeholder="Folder Name"/>
   </div>
-</div>
+
+      <ul class="p-0">
+        <li class="d-flex gap-3 p-3 " [ngClass]="" style="list-style: none;" *ngFor="let folder of folders">
+          <img src="../../../assets/folder.svg" alt="img"/>
+          {{ folder.name | titlecase }}</li>
+      </ul>
+ 
 </div>
 <div class="bg-white rounded" style=" width: 70%;">
 <table class="table caption-top table-bordered table-striped">
@@ -23,18 +29,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let items of document">
-        <td scope="row">{{items.name}}</td>
+      <tr *ngFor="let items of documents">
+        <td scope="row" (click)="openDocument(items._id)">{{items.docName}}</td>
         <td >
-          <span class="draft">{{items.status}}</span>
+          <span class="draft">{{items.status || 'status'}}</span>
         </td>
-        <td>{{items.email}}</td>
-        <td>{{items.with}}</td>
-        <td><img src="{{items.action}}" (click)="deleteRow(items.id)" style="cursor: pointer;"/></td>
+        <td>{{items.email || 'status'}}</td>
+        <td>{{items.with || 'status'}}</td>
+        <td><img src="../../../assets/delete.svg" (click)="deleteRow(items._id)" style="cursor: pointer;"/></td>
       </tr>
     </tbody>
   </table>
 </div>
+</div>
+<div>
+
 </div>
 
 

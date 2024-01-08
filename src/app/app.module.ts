@@ -12,8 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { AccountCreatedComponent } from './account-created/account-created.component';
 import { ResetComponent } from './reset/reset.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +21,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AccountCreatedComponent,
     ResetComponent,
     ChangePasswordComponent,
+    SignUpComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     BrowserAnimationsModule,
     NgxDocViewerModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
     // DashboardModule
   ],
   providers: [],

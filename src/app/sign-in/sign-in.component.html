@@ -1,31 +1,4 @@
-<div class="sign-in d-flex justify-content-center align-items-center " style="height: 100vh;"  *ngIf="signUp">
-    <div class="sign-in-cart d-flex " >
-        <img src="../../assets/SignIn.png" class="rounded-start"/>
-    <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
-        <div class="sign-in-right-cart  d-flex justify-content-center align-items-center flex-column gap-3">
-
-            <h1>Sign Up for an Account</h1>
-            <!-- <div > -->
-            <input type="text" placeholder="Enter Yours Name" [(ngModel)]="VeriablesService.reg_name" />
-            <input type="email" placeholder="Enter Yours Email" [(ngModel)]="VeriablesService.reg_email"/>
-            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="VeriablesService.reg_password"/>
-            <p>Your password must have at least 8 characters</p>
-            <div class="d-flex">
-                <input type="checkbox" style="width: 25%; height: 30px;" [(ngModel)]="checkboxChecked" />
-                <p>By creating an account means you agree to the <b> Terms & Conditions </b> and our <b> Privacy Policy</b></p>
-              </div>
-              
-              <button type="button" class="btn btn-primary" (click)="signupfun()" [disabled]="!checkboxChecked">Register</button>
-              
-              <div [routerLinkActive]="['link-active']" class="d-flex">
-                <p>Already have an account?</p>
-                <a class="text-decoration-none" [routerLink]="['login']">Log In</a>
-              </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="sign-in d-flex justify-content-center align-items-center h-100"  *ngIf="logIn">
+<div class="sign-in d-flex justify-content-center align-items-center h-100"  >
     <div class="sign-in-cart d-flex" style="width: 60%;">
         <img src="../../assets/loginpage.png" class="rounded-start"/>
     <div class="sign-in-right rounded-end d-flex justify-content-center bg-white">
@@ -33,27 +6,22 @@
 
             <h1>Sign In for an Account</h1>
             <p>Welcome back! please enter your detail</p>
-            <input type="email" placeholder="Enter Yours Email" required [(ngModel)]="VeriablesService.reg_email"/>
-            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="VeriablesService.reg_password"/>
-            <div [routerLinkActive]="['link-active']" class="d-flex justify-content-between w-100" required>
+            <input type="email" placeholder="Enter Yours Email" required [(ngModel)]="user.email"/>
+            <input type="password" placeholder="Enter Yours Password" [(ngModel)]="user.password"/>
+            <div class="d-flex justify-content-between w-100" required>
                 <div class="d-flex gap-2 w-50">
-                    <input type="checkbox" style="width: 20px; height: 20px;" [(ngModel)]="checkboxChecked" />
+                    <input type="checkbox" style="width: 20px; height: 20px;" [(ngModel)]="user.checkboxChecked" />
                     <span>Rember Me</span>
                 </div>
                 <a class = "text-decoration-none" routerLink='/reset'>Forget Password?</a>
             </div>
-        <button  type="button" class="btn btn-primary" (click)="logInfun()" [disabled]="!checkboxChecked">Sign In</button>
-        <div [routerLinkActive]="['link-active']" class="d-flex">
+        <button  type="button" class="btn btn-primary" (click)="logInfun()" [disabled]="!isSignInButtonEnabled()">Sign In</button>
+        <div  class="d-flex">
             <p>Don't have an account?</p>
-            <a class = "text-decoration-none" routerLink='/signup' > Sign Up</a>
+            <a class = "text-decoration-none" routerLink="/signup" (click)="routingService.goToSignup"> Sign Up</a>
         </div>
         <!-- </div> -->
     </div>
 </div>
 </div>
 </div>
-
-<!-- 
-<div *ngIf="stepperTimeZone">
-    <app-stepper-view></app-stepper-view>
-</div> -->

@@ -4,31 +4,34 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ApisService } from '../apis.service';
 import { AuthService } from '../auth/auth.service';
+import { StorageService } from '../Services/storage.service';
+import { RoutingService } from '../Services/routing.service';
 
 @Component({
   selector: 'app-account-created',
   templateUrl: './account-created.component.html',
   styleUrls: ['./account-created.component.scss']
 })
-export class AccountCreatedComponent implements OnInit{
-  @Input() id:string = ''
-  companyName:string ='Muneeb'
-  private token = localStorage.getItem('token');
+export class AccountCreatedComponent implements OnInit {
+  @Input() id: string = ''
+  companyName: string = 'Muneeb'
 
-  constructor(public route : ActivatedRoute , private router: Router , private http:HttpClient , private api : ApisService , private auth:AuthService) {
+  constructor(public route: ActivatedRoute, private storage: StorageService, private router: Router, private routingService: RoutingService, private http: HttpClient, private api: ApisService, private auth: AuthService) {
     console.log(this.route.snapshot.params)
   }
-  ngOnInit(){
+  ngOnInit() {
     this.verifyAccount()
   }
 
-  verifyAccount(){
+  verifyAccount() {
     const tokens = this.route.snapshot.params['id'].toString();
-    this.http.post(this.api.base_url + `api/user/verify/${this.token}` , {} ).subscribe(data =>{
-      console.log(data);
+    console.log(tokens);
+    this.http.post(this.api.base_url + `/user/verify/${tokens}`, {}).subscribe((data: any) => {
+      if (data.Message) {
+        this.storage.setToken(tokens);
+        this.routingService.goToDashboard(tokens);
+      }
     })
-    localStorage.setItem('token' , tokens);
-    this.router.navigate([`/dashboard/${tokens}`]);
   }
 
 }
