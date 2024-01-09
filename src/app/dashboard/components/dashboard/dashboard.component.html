@@ -1,0 +1,42 @@
+<div class="dashboard d-flex h-100"> 
+  <app-sidebar></app-sidebar>
+  <div class="w-100">
+      <app-nav-bar ></app-nav-bar>
+    <main class="p-3 d-flex flex-column gap-3">
+      <div class="d-flex justify-content-around p-4" *ngIf="veriableService.addContactForm===false">
+        <select class="form-select" style="width: 16%;">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <input type="search" class="col-8 rounded-pill p-3" placeholder="🔍Search Documents by name, party or email"/>
+      </div>
+      <div>
+      <!-- <div *ngIf="veriableService.document">
+        <app-document></app-document>
+      </div>
+      <div *ngIf="veriableService.templete">
+        <app-templete></app-templete>
+      </div>
+      <div *ngIf="veriableService.contact">
+        <app-contact></app-contact>
+      </div>
+      <div *ngIf="veriableService.setting">
+        <app-setting></app-setting>
+      </div>
+      <div *ngIf="veriableService.account">
+        <app-account></app-account>
+      </div> -->
+      <router-outlet></router-outlet>
+    </div>
+      <!-- <div> -->
+        <!-- <ngx-doc-viewer
+  [url]="file:///C:/Users/Muneeb%20Ullah/Documents/Eng%20Manegment.pdf"
+  viewer="google"
+  style="width:100%;height:50vh;"
+></ngx-doc-viewer> -->
+      <!-- </div> -->
+    </main>
+</div>
+</div>

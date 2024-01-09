@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, provideRouter } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { DocumentComponent } from './dashboard/document/document.component';
-import { TempleteComponent } from './dashboard/templete/templete.component';
-import { ContactComponent } from './dashboard/contact/contact.component';
-import { SettingComponent } from './dashboard/setting/setting.component';
-import { AccountComponent } from './dashboard/account/account.component';
-import { StepperViewComponent } from './stepper-view/stepper-view.component';
-import { AccountCreatedComponent } from './account-created/account-created.component';
-import { AuthGuard } from './auth/auth.guard';
-import { ResetComponent } from './reset/reset.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ViewDocComponent } from './dashboard/view-doc/view-doc.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SidebarComponent } from './dashboard/components/sidebar/sidebar.component';
+import { DashboardComponent } from './dashboard/components/dashboard/dashboard.component';
+import { DocumentComponent } from './dashboard/components/document/document.component';
+import { TempleteComponent } from './dashboard/components/templete/templete.component';
+import { ContactComponent } from './dashboard/components/contact/contact.component';
+import { SettingComponent } from './dashboard/components/setting/setting.component';
+import { AccountComponent } from './dashboard/components/account/account.component';
+import { StepperViewComponent } from './components/stepper-view/stepper-view.component';
+import { AccountCreatedComponent } from './components/account-created/account-created.component';
+import { AuthGuard } from './Shared/auth/auth.guard';
+import { ResetComponent } from './components/reset/reset.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ViewDocComponent } from './dashboard/components/view-doc/view-doc.component';
 
 const routes: Routes = [
   {

@@ -1,0 +1,95 @@
+.sidebar{
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid #d9e0e5;
+
+    .sidebar-toggle{
+        border-right: 1px solid #d9e0e5;  
+        position: fixed; 
+        left: 240px; 
+        height: 67px;
+    }
+    .sidebar-title{
+        background-color:  #2b373d; 
+        height: 60px; 
+        border-right: 1px solid #d9e0e5
+    }
+    .dropdown-menu{
+        width: 100%;
+    transform: translate(-1px, 60px) !important;
+    padding-bottom: 0 !important;
+    background-color:  #2b373d; 
+    border-radius: 0;
+
+    .dropdown-item{
+        border-bottom: 1px solid white;
+        padding: 1rem;
+
+        &:hover{
+            color: black !important;
+        }
+    }
+
+}
+      .dropdown-toggle::after {
+          display: none !important;
+      }
+    .sidebar-content-cart{
+        background-color: rgba(229, 238, 255, 1);
+        border-radius: 30px;
+        color: rgba(52, 161, 244, 1);
+    }
+    
+    .sidebar-middle-content{
+        width: 190px;
+        background-color: rgba(226, 232, 240, .3); 
+        border: 5px dotted #E2E8F0;
+        
+        img{
+            height: 80px;
+            width: 80px;
+        }
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0 0 15px #2d8eff;
+            text-shadow: 0 0 1px #2d8eff;
+            opacity: 0.8;
+            border-style: solid !important;
+            border-color: #6bafff !important;
+        }
+    }
+    .sidebar-middle-down-content{
+        background-color: rgba(229, 238, 255, 1); 
+        border-radius: 30px;
+        
+        span{
+            cursor: pointer;
+        }
+
+
+        .upload-cart{
+            color: white;
+            background-color:  rgba(52, 161, 244, 1);
+            border-radius: 30px;
+        }
+    }
+    .sidebar-bottom{
+        background-color: rgba(232, 242, 255, 1);
+        color: rgba(52, 161, 244, 1);
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+    
+}
+    
+    .hide {
+        transform: translateX(-100%);
+    }
+    
+    .show {
+        transform: translateX(0);
+    }
+   a{
+    cursor: pointer;
+   }

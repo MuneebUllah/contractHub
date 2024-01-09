@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
-import { PopupsService } from './popups.service';
 
 @Injectable({
   providedIn: 'root',

@@ -4,7 +4,7 @@ import { PopupsService } from 'src/app/Services/popups.service';
 import { confirmModelTypes, notificationIcon } from '../../helpers/enums/enums';
 import { StorageService } from 'src/app/Services/storage.service';
 import { RoutingService } from 'src/app/Services/routing.service';
-import { ApisService } from 'src/app/apis.service';
+import { ApisService } from 'src/app/Services/apis.service';
 
 @Component({
   selector: 'app-confirmation-popup',
