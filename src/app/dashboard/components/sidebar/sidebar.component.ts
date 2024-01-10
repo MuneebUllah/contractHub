@@ -7,7 +7,8 @@ import { Signup } from 'src/app/Shared/models/signup.model';
 import { StorageService } from 'src/app/Services/storage.service';
 import { HeaderService } from 'src/app/Services/header.service';
 import { RoutingService } from 'src/app/Services/routing.service';
-import { UploadDocument } from './uploadDocument';
+import { UploadDocument } from '../../../Shared/models/uploadDocument';
+import { ViewDocComponent } from '../view-doc/view-doc.component';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -53,7 +54,8 @@ export class SidebarComponent implements OnInit {
     this.veriableService.templete = false;
     this.veriableService.setting = false;
     this.veriableService.contact = true;
-    this.veriableService.account = false
+    this.veriableService.account = false;
+    this.veriableService.sandContractForm = false
     this.routingService.goToContact(this.token);
   }
   settingfun() {
@@ -121,9 +123,13 @@ export class SidebarComponent implements OnInit {
   }
   createDocument(){
     this.api.createDocument(this.uploadDocument , this.header.headers).subscribe({
-      next:((data)=>
+      next:((data)=>{
       console.log(data)
-      )
+      // this.viewDoc.getDocUrl(this.uploadDocument.docURL)
+      this.routingService.goToViewDoc(this.token);
+      this.veriableService.viewDoc = true;
+      
+      })
     })
     console.log(this.uploadDocument);
   }

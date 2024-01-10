@@ -1,6 +1,6 @@
 <div class="d-flex w-100">
-    <div class="d-flex flex-column gap-2" style="width: 250px;" >
-        <input type="text" placeholder="Signature" class="col-12" cdkDrag dragula="PERSON">
+    <div class="d-flex flex-column gap-2" style="width: 250px;" dragula="COPYABLE" id="left" >
+        <input type="text" placeholder="Signature" class="col-12" >
         <input type="text" placeholder="Initals" class="col-12" cdkDrag/>
         <input type="text" placeholder="Signer Name" class="col-12" cdkDrag/>
         <input type="text" placeholder="Signer Title" class="col-12" cdkDrag/>
@@ -14,9 +14,39 @@
         <input type="text" placeholder="City" class="col-12" />
         <input type="text" placeholder="State" class="col-12" />
         <input type="text" placeholder="Zip" class="col-12" />
+        <!-- <div class='container' dragula="PERSON" id="left" [(dragulaModel)]="left">
+            <div *ngFor="let person of left">{{person | json}}</div>
+          </div>
+          <div class='container' dragula="PERSON" id="right" [(dragulaModel)]="right">
+            <div *ngFor="let person of right">{{person | json}}</div>
+          </div>
+           -->
     </div>
-<div class="w-100">
-    <ngx-doc-viewer [url]="'https://ailaan.pk/home'" viewer="url" style="width:100%;height:100vh;">
+<div class="w-100" dragula="COPYABLE" id="right">
+    <ngx-doc-viewer [url]="docUrl" viewer="url" style="width:100%;height:100%; overflow-y: scroll;">
     </ngx-doc-viewer>
+</div>
+<div class="bg-white d-flex  popup" *ngIf="veriableService.showEmailForm">
+    <table class="table caption-top table-bordered table-striped h-auto"  *ngIf="veriableService.contact">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <!-- <th scope="col">entity Type</th> -->
+            <th scope="col">Action</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of allContacts" (click)="receivemail(items._id)">
+            <td scope="row" >{{items.name }}</td>
+            <td>{{items.email }}</td>
+            <!-- <td>{{items.entityType}}</td> -->
+            <td class="form-check form-switch"><input class="form-check-input" style="float: none; width: 3rem;" type="checkbox" id="flexSwitchCheckChecked" ></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary" (click)="sandContract()">Sand</button>
+    
 </div>
 </div>

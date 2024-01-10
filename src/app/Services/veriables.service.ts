@@ -25,7 +25,10 @@ export class VeriablesService implements OnInit {
  public reg_email: string = '';
  public companyName:any =[]
  public addContactForm:boolean = false;
- 
+ public viewDoc:boolean = false;
+ public sandContractForm:boolean = false
+ public showEmailForm:boolean = false
+ public docId : string = '';
   constructor() { }
 
   getActiveVariableName(): string {

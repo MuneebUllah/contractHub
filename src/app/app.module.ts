@@ -14,6 +14,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UploadDocument } from './Shared/models/uploadDocument';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
     // DashboardModule
   ],
-  providers: [],
+  providers: [UploadDocument],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

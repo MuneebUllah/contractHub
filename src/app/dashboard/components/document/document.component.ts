@@ -3,6 +3,9 @@ import { HeaderService } from 'src/app/Services/header.service';
 import { ApisService } from 'src/app/Services/apis.service';
 import { StorageService } from 'src/app/Services/storage.service';
 import { RoutingService } from 'src/app/Services/routing.service';
+import { VeriablesService } from 'src/app/Services/veriables.service';
+import { UploadDocument } from '../../../Shared/models/uploadDocument';
+import { ContractForm } from 'src/app/Shared/models/contractForm';
 
 @Component({
   selector: 'app-document',
@@ -10,13 +13,14 @@ import { RoutingService } from 'src/app/Services/routing.service';
 })
 export class DocumentComponent implements OnInit {
   createFolder:boolean = false;
+  contractForm:ContractForm = new ContractForm();
   folders:any[] = []
   documents:any[] = []
   
   createFolderfun(){
     this.createFolder = true
   }
-  constructor(private api: ApisService ,private storageService:StorageService, private header:HeaderService ,private routingService:RoutingService){}
+  constructor(private api: ApisService ,private storageService:StorageService,private uploadDoc: UploadDocument, private veriableService:VeriablesService, private header:HeaderService ,private routingService:RoutingService){}
   token = this.storageService.getToken();
   
   ngOnInit(): void {
@@ -33,7 +37,11 @@ export class DocumentComponent implements OnInit {
   }
   openDocument(id : any){
     this.routingService.goToViewDoc(this.token)
-    console.log(id)
+    this.veriableService.viewDoc = true
+    this.veriableService.document = false
+    this.uploadDoc.docURL = id
+    this.contractForm.documentId = id
+    console.log(this.contractForm.documentId)
 
   }
   getDocument(){

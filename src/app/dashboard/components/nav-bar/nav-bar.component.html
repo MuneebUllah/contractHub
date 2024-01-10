@@ -13,7 +13,10 @@
       <div class="d-flex gap-3 m-2" *ngIf="veriableService.contact">
         <button class="px-3 py-2 border-0 text-white" (click)="addContactForm()">Add Contact</button>
       </div>
-      <div class="d-flex gap-3" style="margin: .2rem;" *ngIf="veriableService.contact===false">
+      <div class="d-flex gap-3 m-2" *ngIf="veriableService.viewDoc">
+        <button class="px-3 py-2 border-0 text-white" (click)="sandContractForm()">Sand</button>
+      </div>
+      <div class="d-flex gap-3" style="margin: .2rem;" *ngIf="veriableService.contact===false || veriableService.viewDoc===false">
         <div class="p-3 rounded-circle" style="background-color: rgba(238, 238, 238, 1);">
         <img src="../../../assets/ic_bell.svg" alt="img"/>
       </div>

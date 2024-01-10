@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let items of documents">
-        <td scope="row" (click)="openDocument(items._id)">{{items.docName}}</td>
+        <td scope="row" (click)="openDocument(items._id)" style="cursor: pointer;">{{items.docName}}</td>
         <td >
           <span class="draft">{{items.status || 'status'}}</span>
         </td>

@@ -5,6 +5,7 @@ import { ApisService } from 'src/app/Services/apis.service';
 import { HeaderService } from 'src/app/Services/header.service';
 import { HttpHeaders } from '@angular/common/http';
 import { VeriablesService } from 'src/app/Services/veriables.service';
+import { ContractForm } from 'src/app/Shared/models/contractForm';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -16,6 +17,7 @@ export class ContactComponent implements OnInit{
   individualContactForm:boolean = false;
   individualForm : ContactForm = new ContactForm();
   companyForm : ContactForm = new ContactForm();
+  contractForm:ContractForm = new ContractForm();
   allContacts :any[] = [];
   // contactForm:ContactForm = 
   ngOnInit(): void {
@@ -63,6 +65,11 @@ export class ContactComponent implements OnInit{
       
       )
     })
+  }
+
+  receivemail(id:any){
+    this.contractForm.receivers = id
+    console.log(id)
   }
   companyFormSubmittedFun(){
     const body = {

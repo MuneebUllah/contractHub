@@ -1,0 +1,14 @@
+.popup{
+    height: 50rem;
+    width: 50rem;
+    z-index: 1;
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

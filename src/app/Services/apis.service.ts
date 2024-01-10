@@ -42,5 +42,9 @@ export class ApisService {
   deleteDocument(headers:any , id:string){
     return this.http.delete(this.base_url + `/user/deleteDocument/${id}` , { headers })
   }
+  sandContract( body:any , headers:any){
+    console.log(body , headers)
+    return this.http.post(this.base_url + `/user/sendContract` ,body,  { headers } )
+  }
 
 }
