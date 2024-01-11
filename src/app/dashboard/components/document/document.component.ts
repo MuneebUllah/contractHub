@@ -20,7 +20,7 @@ export class DocumentComponent implements OnInit {
   createFolderfun(){
     this.createFolder = true
   }
-  constructor(private api: ApisService ,private storageService:StorageService,private uploadDoc: UploadDocument, private veriableService:VeriablesService, private header:HeaderService ,private routingService:RoutingService){}
+  constructor(private api: ApisService , private storageService:StorageService,private uploadDoc: UploadDocument, private veriableService:VeriablesService, private header:HeaderService ,public routingService:RoutingService){}
   token = this.storageService.getToken();
   
   ngOnInit(): void {
@@ -39,9 +39,10 @@ export class DocumentComponent implements OnInit {
     this.routingService.goToViewDoc(this.token)
     this.veriableService.viewDoc = true
     this.veriableService.document = false
-    this.uploadDoc.docURL = id
-    this.contractForm.documentId = id
-    console.log(this.contractForm.documentId)
+    this.veriableService.notificationIcon = false
+    // this.uploadDoc.docURL = id
+    localStorage.setItem('documentId' , id)
+    console.log(this.contractForm.receivers)
 
   }
   getDocument(){

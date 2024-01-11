@@ -1,14 +1,457 @@
 .popup{
-    height: 50rem;
     width: 50rem;
     z-index: 1;
-    display: none; /* Initially hidden */
-    position: fixed; /* Fixed to the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 64%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contractHub_PDF_editor {
+    background-color: #fff;
+    border: 1px solid var(--sidebar-border);
+    height: 100%;
+    overflow-y: hidden;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+}
+.contractHub_PDF_editor .leftCol.opened {
+    width: 300pt;
+}
+.contractHub_PDF_editor .leftCol {
+    -webkit-flex: initial;
+    flex: initial;
+    padding: 0;
+    display: -webkit-flex;
+    display: flex;
+    border-right: 1px solid var(--sidebar-border)!important;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.contractHub_PDF_editor .leftCol .react-tabs {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    max-width: 100%;
+}
+.react-tabs {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+}
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.contractHub_PDF_editor .leftCol .react-tabs .docViewerColNav {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.contractHub_PDF_editor .leftCol .react-tabs .w-60 {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+}
+.contractHub_PDF_editor .leftCol .react-tabs .h-100 {
+    height: 100%;
+    min-height: 100%;
+}
+
+
+.contractHub_PDF_editor .leftCol .react-tabs .docViewerColNav ul {
+    margin-bottom: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
+    border-left: 1px solid var(--sidebar-border)!important;
+    border-bottom: none!important;
+}
+
+.react-tabs__tab-list {
+    margin: 0 0 10px;
+    padding: 0;
+}
+.react-tabs__tab-list {
+    display: -webkit-flex;
+    display: flex;
+    max-height: 50px;
+    border-left: none!important;
+    border-top: none!important;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    width: 100%;
+    min-height: 50px;
+    background: #fff;
+}
+.react-tabs__tab-list {
+    border-bottom: 1px solid #aaa;
+    margin: 0 0 10px;
+    padding: 0;
+}
+.contractHub_PDF_editor .leftCol .react-tabs .docViewerColNav ul #docViewer_leftCol_trigger {
+    height: 50px!important;
+    min-height: 50px;
+    max-height: 50px;
+    border-bottom: 1px solid var(--sidebar-border)!important;
+    border-right: none!important;
+}
+.docViewerColNav div {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.docViewerColNav div i {
+    color: #717b88;
+}
+.gg-menu-motion {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 14px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: scale(var(--ggs,1));
+    transform: scale(var(--ggs,1));
+}
+
+
+.docViewerColcontent {
+    width: 100%!important;
+}
+
+.react-tabs__tab-panel--selected {
+    height: 100%;
+    display: -webkit-flex!important;
+    display: flex!important;
+    padding-bottom: 20px;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.react-tabs__tab-panel--selected {
+    display: block;
+}
+.react-tabs__tab-panel {
+    display: none;
+}
+
+.partiesHeader {
+    background-color: var(--body-background);
+    box-shadow: inset 0 -11px 8px -10px var(--border-grey);
+    z-index: 2;
+    margin-bottom: -3px;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0;
+    border-bottom: 1px solid var(--sidebar-border);
+    height: 90px;
+}
+
+.contractHub_PDF_editor_section {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.contractHub_PDF_editor_section_header {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 64px;
+}
+
+.contractHub_PDF_editor_section_header_right .greyButton {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 0!important;
+    width: 42px;
+    height: 42px;
+}
+.greyButton {
+    border: 1px solid var(--sidebar-border);
+    background-color: #fff;
+    color: var(--font);
+    font-weight: 500!important;
+    box-shadow: 0 2px 6px 0 rgba(136,148,171,.2), 0 24px 20px -24px rgba(71,82,107,.1);
+    border-radius: 8px;
+    height: 38px;
+    text-transform: none;
+}
+
+button {
+    cursor: pointer!important;
+}
+
+.contractHub_PDF_editor .rightCol, .contractHub_PDF_editor .rightCol .addFileArea {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    // -webkit-flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.contractHub_PDF_editor .rightCol {
+    padding: 0;
+    -webkit-flex: 2 1;
+    flex: 2 1;
+    flex-direction: column;
+    background-color: var(--pdfCanvasBackground);
+    overflow: auto;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border-left: 1px solid var(--sidebar-border)!important;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid var(--sidebar-border)!important;
+}
+
+.docViewerColNav {
+    display: -webkit-flex;
+    display: flex;
+    max-height: 50px;
+    border-bottom: none;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    width: 100%;
+    min-height: 50px;
+    background: #fff;
+}
+
+#canvas-wrapper {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    background-color: var(--pdfCanvasBackground);
+    overflow: scroll;
+}
+
+.docViewerColcontent {
+    width: 100%!important;
+}
+
+.contracthub-wrapper .contracthub-body .view-content {
+    padding: 0;
+    overflow-x: none;
+    height: calc(100vh - 60px);
+}
+
+#canvas-holder, .pdf-page-wrapper {
+    width: -webkit-fit-content;
+    width: fit-content;
+    width: -moz-fit-content;
+    position: relative;
+}
+#canvas-holder {
+    display: block;
+    margin: 0 auto;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: var(--pdfCanvasBackground);
+    min-width: 100%;
+    max-width: 100%;
+}
+.justify-content-center {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.d-flex {
+    display: -webkit-flex!important;
+    display: flex!important;
+}
+.pdf-page-wrapper {
+    border: 1px solid var(--sidebar-border);
+    box-shadow: 0 10px 16px 0 #91adc9,0 6px 20px 0 #80a0c1!important;
+    margin: 0 auto 40px;
+    border-radius: 10px;
+}
+#canvas-holder, .pdf-page-wrapper {
+    width: -webkit-fit-content;
+    width: fit-content;
+    width: -moz-fit-content;
+    position: relative;
+}
+
+.react-tabs__tab-panel--selected {
+    height: 100%;
+    display: -webkit-flex!important;
+    display: flex!important;
+    padding-bottom: 20px;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.react-tabs__tab-panel--selected {
+    display: block;
+}
+
+.react-tabs__tab-panel {
+    display: none;
+}
+
+.partiesHeader {
+    background-color: var(--body-background);
+    box-shadow: inset 0 -11px 8px -10px var(--border-grey);
+    z-index: 2;
+    margin-bottom: -3px;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0;
+    border-bottom: 1px solid var(--sidebar-border);
+    height: 90px;
+}
+.ch_avatarsBlock {
+    margin: -1px;
+    background: transparent;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: auto;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    max-width: 278px;
+    height: 90px;
+}
+
+.ch_avatarsBlock, .ch_dropdown:hover .ch_dropdown__content {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.ch_avatars.chRow {
+    -webkit-flex-direction: row!important;
+    flex-direction: row!important;
+    padding: 0 10px;
+}
+
+.ch_avatarsBlock .ch_avatars {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.ch_avatars.chRow .partiesContainer {
+    background-color: transparent;
+    box-shadow: none!important;
+    border: none;
+}
+
+.ch_avatars.chRow div {
+    margin-right: 9px!important;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 4px 0 rgba(45,142,255,.5)!important;
+    z-index: 5;
+    position: relative;
+    cursor: pointer;
+}
+
+.partiesBody {
+    padding: 20px;
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+    overflow-y: scroll;
+}
+.annotationFields {
+    width: 100%;
+}
+
+.contractHub_PDF_editor .leftCol .data-fields-item {
+    padding: 12px 9px 12px 13px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(45,142,255,.05);
+    border: 1px solid var(--sidebar-border);
+    background-color: var(--shadow);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: 6px;
+    width: 100%;
+    margin-right: auto;
+}
+
+.grabCursor {
+    cursor: move!important;
+}
+
+.contractHub_PDF_editor .leftCol .data-fields-item .data-value {
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    font-size: var(--fontSize-normal);
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--font);
+}
+.contractHub_PDF_editor .leftCol .data-fields-item {
+    padding: 12px 9px 12px 13px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(45,142,255,.05);
+    border: 1px solid var(--sidebar-border);
+    background-color: var(--shadow);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: 6px;
+    width: 100%;
+    margin-right: auto;
+}
+
+.grabCursor {
+    cursor: move!important;
 }

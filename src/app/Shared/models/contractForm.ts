@@ -1,4 +1,4 @@
 export class ContractForm{
-    documentId:string = '';
+    documentId:any = localStorage.getItem('documentId')
     receivers:any[] = []
 }

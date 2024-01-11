@@ -1,0 +1,10 @@
+<div>
+    <canvas #canvasElement width="400" height="200" style="border: 1px solid black;" (mousedown)="startEditing()"></canvas>
+    <textarea style="border: 1px solid black;"
+      [(ngModel)]="textContent"
+      *ngIf="editing"
+      <!-- (blur)="stopEditing()"
+      (keyup.enter)="stopEditing()" -->
+    ></textarea>
+    <button (click)="toggleEditMode()">{{ editing ? 'View' : 'Edit' }}</button>
+  </div>

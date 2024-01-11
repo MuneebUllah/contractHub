@@ -114,7 +114,7 @@ export class SidebarComponent implements OnInit {
 
       this.api.sentFile(formData, this.header.headers).subscribe((data: any) => {
         next: (
-          this.uploadDocument.docURL = data.url,
+          localStorage.setItem('url', data.url),
           this.createDocument()
         )
       })

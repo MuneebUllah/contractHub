@@ -29,6 +29,7 @@ export class VeriablesService implements OnInit {
  public sandContractForm:boolean = false
  public showEmailForm:boolean = false
  public docId : string = '';
+ public notificationIcon:boolean = true
   constructor() { }
 
   getActiveVariableName(): string {

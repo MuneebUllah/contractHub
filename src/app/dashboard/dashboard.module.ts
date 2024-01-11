@@ -15,6 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { StepperViewComponent } from '../components/stepper-view/stepper-view.component';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { ViewDocComponent } from './components/view-doc/view-doc.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DocumentEditorModule } from '@syncfusion/ej2-angular-documenteditor';
+import { CanvasComponent } from './components/canvas/canvas.component';
 
 
 @NgModule({
@@ -28,14 +32,18 @@ import { ViewDocComponent } from './components/view-doc/view-doc.component';
     SettingComponent,
     AccountComponent,
     StepperViewComponent,
-    ViewDocComponent
+    ViewDocComponent,
+    CanvasComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     DragDropModule,
     FormsModule,
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    DocumentEditorModule
     // dragDropModule
   ]
 })

@@ -80,6 +80,7 @@ export class ContactComponent implements OnInit{
       
       next:((data:any)=>{
         console.log(data)
+      
         // console
       })
     })

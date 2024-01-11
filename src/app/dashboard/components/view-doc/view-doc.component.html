@@ -14,26 +14,28 @@
         <input type="text" placeholder="City" class="col-12" />
         <input type="text" placeholder="State" class="col-12" />
         <input type="text" placeholder="Zip" class="col-12" />
-        <!-- <div class='container' dragula="PERSON" id="left" [(dragulaModel)]="left">
+<!-- <div class='container' dragula="PERSON" id="left" [(dragulaModel)]="left">
             <div *ngFor="let person of left">{{person | json}}</div>
           </div>
           <div class='container' dragula="PERSON" id="right" [(dragulaModel)]="right">
             <div *ngFor="let person of right">{{person | json}}</div>
           </div>
            -->
-    </div>
-<div class="w-100" dragula="COPYABLE" id="right">
-    <ngx-doc-viewer [url]="docUrl" viewer="url" style="width:100%;height:100%; overflow-y: scroll;">
-    </ngx-doc-viewer>
 </div>
-<div class="bg-white d-flex  popup" *ngIf="veriableService.showEmailForm">
-    <table class="table caption-top table-bordered table-striped h-auto"  *ngIf="veriableService.contact">
+<div class="w-100" style="height: 80vh;" dragula="COPYABLE" id="right">
+    <ngx-doc-viewer [url]="'http://localhost:9090/Document-1704962939633-113499466.pdf'" viewer="url" style="width:100%;height:100%;">
+    </ngx-doc-viewer>
+<!-- <ejs-documenteditorcontainer #documenteditor_default [enableToolbar]=true [locale]="culture" (created)="onCreate()"
+    (documentChange)="onDocumentChange()" [serviceUrl]="hostUrl" height="600px" style="display:block;"></ejs-documenteditorcontainer> -->
+<!-- <ejs-documenteditorcontainer #documenteditor_default [enableToolbar]=true [locale]="culture" (created)="onCreate()" (documentChange)="onDocumentChange()" height="600px" [serviceUrl]="hostUrl"  style="display:block;"></ejs-documenteditorcontainer> -->
+<div class="bg-white d-flex flex-column justify-content-around popup p-5" *ngIf="veriableService.showEmailForm">
+      <table class="table caption-top table-bordered table-striped h-auto"  *ngIf="veriableService.contact">
         <thead>
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <!-- <th scope="col">entity Type</th> -->
-            <th scope="col">Action</th>
+<!-- <th scope="col">entity Type</th> -->
+<th scope="col">Action</th>
     
           </tr>
         </thead>
@@ -41,12 +43,270 @@
           <tr *ngFor="let items of allContacts" (click)="receivemail(items._id)">
             <td scope="row" >{{items.name }}</td>
             <td>{{items.email }}</td>
-            <!-- <td>{{items.entityType}}</td> -->
-            <td class="form-check form-switch"><input class="form-check-input" style="float: none; width: 3rem;" type="checkbox" id="flexSwitchCheckChecked" ></td>
+<!-- <td>{{items.entityType}}</td> -->
+<td class="form-check form-switch"><input class="form-check-input" style="float: none; width: 3rem;" type="checkbox" id="flexSwitchCheckChecked" ></td>
           </tr>
         </tbody>
       </table>
       <button type="button" class="btn btn-primary" (click)="sandContract()">Sand</button>
-    
+      
+    </div>
+  </div>
 </div>
-</div>
+<!-- <div class="contracthub-wrapper contracthub-body view-content">
+  <div class="contractHub_PDF_editor">
+    <div class="leftCol test  opened">
+      <div class="react-tabs" data-rttabs="true">
+        <div class="docViewerColcontent">
+          <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-13"
+            aria-labelledby="react-tabs-12">
+            <div class="partiesBody">
+              <div class="annotationFields">
+                <div>
+                  <div data-annotationtype="name" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Legal Name <br></span></div>
+                  <div class="fieldDivider"></div>
+                  <div data-annotationtype="sign" draggable="true" data-isvariable="notVariable" data-value="Signature"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                      </svg></span><span class="data-value">Signature <br></span></div>
+                  <div data-annotationtype="initials" draggable="true" data-isvariable="notVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Initials <br></span></div>
+                  <div data-annotationtype="signerName" draggable="true" data-isvariable="isVariable"
+                    data-value="muneeb Ullah" class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Signer Name <br></span></div>
+                  <div id="ghost-5" class="dragGhost"></div>
+                  <div data-annotationtype="title" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Signer Title <br></span></div>
+                  <div id="ghost-7" class="dragGhost"></div>
+                  <div data-annotationtype="signature_Date" draggable="true" data-isvariable="notVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Signature Date <br></span></div>
+                  <div id="ghost-9" class="dragGhost"></div>
+                  <div class="fieldDivider"></div>
+                  <div data-annotationtype="text" draggable="true" data-isvariable="notVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                        <line x1="9" y1="20" x2="15" y2="20"></line>
+                        <line x1="12" y1="4" x2="12" y2="20"></line>
+                      </svg></span><span class="data-value">Text Field <br></span></div>
+                  <div id="ghost-11" class="dragGhost"></div>
+                  <div data-annotationtype="check" draggable="true" data-isvariable="notVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                      </svg></span><span class="data-value">Checkbox <br></span></div>
+                  <div id="ghost-12" class="dragGhost"></div>
+                  <div class="fieldDivider"></div>
+                  <div data-annotationtype="email" draggable="true" data-isvariable="isVariable"
+                    data-value="muneebjutt0099@gmail.com" class="mb-3 grabCursor data-fields-item"><span
+                      class="codeIcon mr-10"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="#2CCCE4" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Email <br></span></div>
+                  <div id="ghost-14" class="dragGhost"></div>
+                  <div data-annotationtype="phone" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Phone <br></span></div>
+                  <div id="ghost-15" class="dragGhost"></div>
+                  <div data-annotationtype="street" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Street Address <br></span></div>
+                  <div id="ghost-16" class="dragGhost"></div>
+                  <div data-annotationtype="city" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">City <br></span></div>
+                  <div id="ghost-17" class="dragGhost"></div>
+                  <div data-annotationtype="state" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">State <br></span></div>
+                  <div id="ghost-18" class="dragGhost"></div>
+                  <div data-annotationtype="zipCode" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Zip Code <br></span></div>
+                  <div id="ghost-19" class="dragGhost"></div>
+                  <div data-annotationtype="country" draggable="true" data-isvariable="isVariable"
+                    class="mb-3 grabCursor data-fields-item"><span class="codeIcon mr-10"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="#2CCCE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      </svg></span><span class="data-value">Country <br></span></div>
+                  <div id="ghost-20" class="dragGhost"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="react-tabs__tab-panel" role="tabpanel" id="react-tabs-15" aria-labelledby="react-tabs-14"></div>
+        </div>
+      </div>
+    </div>
+    <div class="rightCol">
+      <div class="docViewerColcontent" id="canvas-wrapper">
+        <div id="canvas-holder">
+          <div id="pdfPageWrapper-1" class="pdf-page-wrapper d-flex justify-content-center"><canvas id="pdf-page-1"
+              class="pdfPage-canvas"></canvas>
+            <div id="pdfPage-1-fieldsLayer" class="absolute fieldsLayer" style="width: 600px; height: 1000px;">
+              <div class="annotation-box name editableTextArea variableField react-draggable"
+                id="rndBox_dragSignBox-1-1" data-trigger="click focus" data-tip="muneeb Ullah" data-for="message"
+                data-type="info"
+                style="position: absolute; user-select: auto; width: 200px; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; font-size: 13.5pt; font-weight: 500; line-height: 1.5; background-color: rgba(44, 204, 228, 0.2); transform: translate(74px, 108px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0; z-index: 1;">
+                <div class="fieldMarkerPlaceholder"></div>
+                <div class="fieldMarkerMenuButton" id="fieldMenuButtonFor_dragSignBox-1-1"
+                  style="border-color: rgb(44, 204, 228); background: rgb(44, 204, 228); box-shadow: white 0px 0px 0px 2px, rgb(44, 204, 228) 0px 0px 0px 3px; opacity: 0;">
+                  <i class="fi fi-rr-menu-dots"></i></div>muneeb<span id="ruler_dragSignBox-1-1"
+                  class="text-align-ruler" style="border-bottom: 1px solid rgb(44, 204, 228);"></span>
+                <div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 100%; height: 10px; bottom: -5px; left: 0px; cursor: row-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;">
+                  </div>
+                </div>
+              </div>
+              <div class="annotation-box name editableTextArea    variableField react-draggable react-draggable-dragged"
+                id="rndBox_dragSignBox-1-2" data-trigger="click focus" data-tip="muneeb Ullah" data-for="message"
+                data-type="info"
+                style="position: absolute; user-select: auto; width: 200px; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; font-size: 13.5pt; font-weight: 500; line-height: 1.5; background-color: rgba(44, 204, 228, 0.2); transform: translate(115px, 381px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0; z-index: 1;">
+                <div class="fieldMarkerPlaceholder"></div>
+                <div class="fieldMarkerMenuButton" id="fieldMenuButtonFor_dragSignBox-1-2"
+                  style="border-color: rgb(44, 204, 228); background: rgb(44, 204, 228); box-shadow: white 0px 0px 0px 2px, rgb(44, 204, 228) 0px 0px 0px 3px; opacity: 0;">
+                  <i class="fi fi-rr-menu-dots"></i></div>muneeb<span id="ruler_dragSignBox-1-2"
+                  class="text-align-ruler" style="border-bottom: 1px solid rgb(44, 204, 228); display: none;"></span>
+                <div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 100%; height: 10px; bottom: -5px; left: 0px; cursor: row-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;">
+                  </div>
+                </div>
+              </div>
+              <div class="annotation-box sign editableTextArea  signatureField signatureLineHeight   react-draggable"
+                id="rndBox_dragSignBox-1-3" data-trigger="click focus" data-tip="muneeb Ullah" data-for="message"
+                data-type="info"
+                style="position: absolute; user-select: auto; width: 250px; height: 61px; display: inline-block; top: 0px; left: 0px; cursor: move; font-size: 24.5pt; font-weight: 500; line-height: 1.5; background-color: rgba(44, 204, 228, 0.2); transform: translate(115px, 276px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0; z-index: 1;">
+                <div class="fieldMarkerPlaceholder"></div>
+                <div class="fieldMarkerMenuButton" id="fieldMenuButtonFor_dragSignBox-1-3"
+                  style="border-color: rgb(44, 204, 228); background: rgb(44, 204, 228); box-shadow: white 0px 0px 0px 2px, rgb(44, 204, 228) 0px 0px 0px 3px; opacity: 0;">
+                  <i class="fi fi-rr-menu-dots"></i></div>
+                <div class="signatureText"
+                  style="font-size: inherit;  display: inherit; overflow: hidden; width: 100%; height: 100%; white-space: nowrap;">
+                  Signature</div>
+                <div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 100%; height: 10px; bottom: -5px; left: 0px; cursor: row-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;">
+                  </div>
+                </div>
+              </div>
+              <div class="annotation-box initials editableTextArea    variableField react-draggable"
+                id="rndBox_dragSignBox-1-4" data-trigger="click focus" data-tip="muneeb Ullah" data-for="message"
+                data-type="info"
+                style="position: absolute; user-select: auto; width: 200px; height: auto; display: inline-block; top: 0px; left: 0px; cursor: move; font-size: 13.5pt; font-weight: 500; line-height: 1.5; background-color: rgba(44, 204, 228, 0.2); transform: translate(123px, 479px); max-width: 9.0072e+15px; max-height: 9.0072e+15px; box-sizing: border-box; flex-shrink: 0; z-index: 1;">
+                <div class="fieldMarkerPlaceholder"></div>
+                <div class="fieldMarkerMenuButton" id="fieldMenuButtonFor_dragSignBox-1-4"
+                  style="border-color: rgb(44, 204, 228); background: rgb(44, 204, 228); box-shadow: white 0px 0px 0px 2px, rgb(44, 204, 228) 0px 0px 0px 3px; opacity: 0;">
+                  <i class="fi fi-rr-menu-dots"></i></div>mU<span id="ruler_dragSignBox-1-4" class="text-align-ruler"
+                  style="border-bottom: 1px solid rgb(44, 204, 228);"></span>
+                <div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 10px; height: 100%; top: 0px; right: -5px; cursor: col-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 100%; height: 10px; bottom: -5px; left: 0px; cursor: row-resize;">
+                  </div>
+                  <div class=""
+                    style="position: absolute; user-select: none; width: 20px; height: 20px; right: -10px; bottom: -10px; cursor: se-resize;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="pdfPageWrapper-2" class="pdf-page-wrapper d-flex justify-content-center"><canvas id="pdf-page-2"
+              class="pdfPage-canvas" width="600" height="1000"></canvas>
+            <div id="pdfPage-2-fieldsLayer" class="absolute fieldsLayer" ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -43,6 +43,9 @@ export class RoutingService {
   goToSetting(data:any){
     this.routes.navigate([`/dashboard/${data}/setting` ]);
   }
+  goToCanvas(data:any){
+    this.routes.navigate([`/dashboard/${data}/convas` ]);
+  }
   goToAccount(data:any){
     this.routes.navigate([`/dashboard/${data}/account` ]);
   }

@@ -7,7 +7,12 @@ import { ApisService } from 'src/app/Services/apis.service';
 import { HeaderService } from 'src/app/Services/header.service';
 import { ContractForm } from 'src/app/Shared/models/contractForm';
 import { VeriablesService } from 'src/app/Services/veriables.service';
+import { ContractFormService } from 'src/app/Services/contractForm.Service';
 // import { DragulaService } from "ng2-dragula";
+import {  ViewChild } from '@angular/core';
+import { DocumentEditorContainerComponent } from
+ 
+'@syncfusion/ej2-angular-documenteditor';
 
 @Component({
   selector: 'app-view-doc',
@@ -21,7 +26,7 @@ export class ViewDocComponent implements OnInit{
   contractForm:ContractForm = new ContractForm();
   docUrl: any;
   allContacts :any[] = [];
-  constructor(private dragulaService: DragulaService ,public veriableService:VeriablesService, private api:ApisService , private header:HeaderService) {
+  constructor(private dragulaService: DragulaService,private contractFormService: ContractFormService, public veriableService:VeriablesService, private api:ApisService , private header:HeaderService) {
     dragulaService.createGroup('COPYABLE', {
       copy: (el, source) => {
         return source.id === 'left';
@@ -35,30 +40,21 @@ export class ViewDocComponent implements OnInit{
   ngOnInit(): void {
     this.getDocUrl();
     this.getAllContact()
-    console.log(this.contractForm)
+    // console.log(this.contractForm)
   }
-  get url(): any {
-    return this._url;
-  }
-
-  set url(value: any) {
-    this._url = value;
-    this.getDocUrl();
-    console.log(this._url);
-  }
-
   getDocUrl() {
-    this.docUrl = this.uploadDocument.docURL;
+    this.docUrl = localStorage.getItem('url');
     console.log(this.docUrl);
   }
-  receivemail(id:any){
+  receivemail(id:any){ 
     this.contractForm.receivers = id
-    console.log(id)
+        // console.log(this.contractForm.documentId)
   }
   sandContract(){
     this.api.sandContract(this.contractForm , this.header.headers).subscribe({
       next:((data)=>{
         console.log(data, this.contractForm);
+        this.veriableService.contact = false
       })
     })
   }
@@ -67,7 +63,7 @@ export class ViewDocComponent implements OnInit{
     this.api.getAllContact(this.header.headers).subscribe({
       next:((data:any)=>{
         this.allContacts = data.Contacts;
-    console.log(this.allContacts);
+    // console.log(this.allContacts);
     
   }       
     
@@ -137,3 +133,4 @@ export class ViewDocComponent implements OnInit{
 //   }
 
 // }
+

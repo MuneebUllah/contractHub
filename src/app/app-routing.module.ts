@@ -15,6 +15,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ViewDocComponent } from './dashboard/components/view-doc/view-doc.component';
+import { CanvasComponent } from './dashboard/components/canvas/canvas.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path:'view-doc',
         component:ViewDocComponent
+      },
+      {
+        path:'convas',
+        component:CanvasComponent
       },
     ]
   },

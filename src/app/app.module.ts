@@ -15,6 +15,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UploadDocument } from './Shared/models/uploadDocument';
+import { DocumentEditorModule } from '@syncfusion/ej2-angular-documenteditor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { UploadDocument } from './Shared/models/uploadDocument';
     ResetComponent,
     ChangePasswordComponent,
     SignUpComponent,
+
     
   ],
   imports: [
@@ -33,6 +35,7 @@ import { UploadDocument } from './Shared/models/uploadDocument';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    DocumentEditorModule
     // DashboardModule
   ],
   providers: [UploadDocument],
