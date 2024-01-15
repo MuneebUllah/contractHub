@@ -80,6 +80,8 @@ export class ContactComponent implements OnInit{
       
       next:((data:any)=>{
         console.log(data)
+        this.veriableService.addContactForm = false
+        this.veriableService.contact = true
       
         // console
       })
@@ -97,5 +99,13 @@ export class ContactComponent implements OnInit{
     this.companyContactForm= false;
     this.individualContactForm = true;
   }
+  deleteRow(id:any){  
+    this.api.deleteContact(this.header.headers , id).subscribe({
+      next:((data:any)=>{
+        console.log(data)
+      }
+      )
+    })
+}
 }
 

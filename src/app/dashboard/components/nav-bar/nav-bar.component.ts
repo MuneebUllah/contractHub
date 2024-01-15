@@ -37,4 +37,12 @@ export class NavBarComponent  implements OnInit{
     this.veriableService.showEmailForm = true
   }
 
+  notification(){
+
+  }
+  goToSetting(){
+    this.routingService.goToSetting(this.header.headers)
+    this.veriableService.setting = true
+  }
+
 }

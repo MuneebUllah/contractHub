@@ -77,11 +77,6 @@ export class RoutingService {
   goToProducts(query?: any) {
     this.routes.navigate([`/products`], { queryParams: query })
   }
-
-  goToSettings() {
-    this.routes.navigate(['/settings']);
-  }
-
   goBack() {
     this.location.back()
   }

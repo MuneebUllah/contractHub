@@ -2,6 +2,7 @@
     <div class="sidebar-toggle"  (click)="toggleSidebar()">
         <img src="../../../assets/burger-menu.svg" width="45" class="pt-2"/>
       </div>
+      <!-- <div [ngClass]="sidebarOpen ? 'd-flex flex-column gap-2' : 'd-none'"> -->
       <a href="/dashboard"
       class="sidebar-title nav-link d-flex fs-4 py-4 align-items-center justify-content-around text-white w-100">
       <div>{{this.veriableService.userName}}</div>
@@ -21,21 +22,21 @@
             <li  class="list-group-item border-0 p-3" (click)="documentfun()"
                 [ngClass]="veriableService.document ? 'sidebar-content-cart' : ''">
                 <a  class="nav-link ">
-                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
+                    <img src="../../../assets/Vector.svg" class="me-2" width="16" height="16" />
                     Document
                 </a>
             </li>
-            <li  class="list-group-item border-0 p-3"
+            <!-- <li  class="list-group-item border-0 p-3"
                 [ngClass]="veriableService.templete ? 'sidebar-content-cart' : ''" (click)="templetefun()">
                 <a  class="nav-link">
                     <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
                     Template
                 </a>
-            </li>
+            </li> -->
             <li  [ngClass]="veriableService.contact ? 'sidebar-content-cart' : ''"
                 class="list-group-item border-0 p-3" (click)="contactfun()">
                 <a  class="nav-link ">
-                    <img src="../../../assets/Group1.svg" class="me-2" width="16" height="16" />
+                    <img src="../../../assets/Group2.svg" class="me-2" width="16" height="16" />
                     Contacts
                 </a>
             </li>
@@ -46,6 +47,13 @@
                     Settings
                 </a>
             </li>
+            <li class="list-group-item border-0 p-3"
+                    [ngClass]="veriableService.logout ? 'sidebar-content-cart' : ''">
+                    <a class="nav-link">
+                        <img src="../../../assets/logout.svg" class="bi me-2" width="16" height="16" />
+                        <span (click)="logout()">LogOut</span>
+                    </a>
+                </li>
         </ul>
         <div class=" d-grid gap-3 p-4 border border-light">
             <label for="uploadIndividualFile">
@@ -56,15 +64,15 @@
                         accept="application/pdf" (change)="onFileSelected($event)" />
                 </div>
             </label>
-            <div class="py-3 sidebar-middle-down-content">
-                <span [ngClass]="veriableService.document ? 'upload-cart' : ''" class="p-3"
+            <div class="p-2 sidebar-middle-down-content">
+                <span  class="p-3 upload-cart d-flex w-100 justify-content-between"
                     (click)="documentfun()">Document</span>
-                <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-3 "
-                    (click)="templetefun()">Templete</span>
+                <!-- <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-3 "
+                    (click)="templetefun()">Templete</span> -->
             </div>
         </div>
 
-            <ul class="list-group">
+            <!-- <ul class="list-group">
                 <li [routerLinkActive]="['link-active']" (click)="accountfun()" class=" list-group-item border-0 p-3"
                     [ngClass]="veriableService.account ? 'sidebar-content-cart' : ''">
                     <a [routerLink]="['account']" class="nav-link">
@@ -79,15 +87,10 @@
                         <span>Support</span>
                     </a>
                 </li>
-                <li class="list-group-item border-0 p-3"
-                    [ngClass]="veriableService.logout ? 'sidebar-content-cart' : ''">
-                    <a class="nav-link">
-                        <img src="../../../assets/Vector.svg" class="bi me-2" width="16" height="16" />
-                        <span (click)="logout()">LogOut</span>
-                    </a>
-                </li>
-            </ul>
+                
+            </ul> -->
  
     </div>
     <span class="sidebar-bottom">The Contract v2.6.00</span>
 </div>
+<!-- </div> -->

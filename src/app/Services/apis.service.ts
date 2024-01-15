@@ -20,7 +20,6 @@ export class ApisService {
     return this.http.get(this.base_url + '/user/getAllFolders' , { headers })
   }
   getCompanies(headers:any){
-    console.log(headers)
     return this.http.get(this.base_url + '/user/getUserCompanies' , { headers })
   }
   sentFile(body:any , headers:any){
@@ -30,11 +29,17 @@ export class ApisService {
   getDocument(headers:any){
     return this.http.get(this.base_url + '/user/getAllDocuments' , { headers })
   }
+  getTemplete(headers:any){    
+    return this.http.get(this.base_url + '/user/templates'  ,  { headers })
+  }
   getAllContact(headers:any){
     return this.http.get(this.base_url + '/user/getAllContacts' , { headers })
   }
   createDocument( body:any ,headers:any){
     return this.http.post(this.base_url + '/user/createDocument' ,body, { headers })
+  }
+  searchDocument( body:any ,headers:any){
+    return this.http.post(this.base_url + '/user/searchDocument' ,body, { headers })
   }
   createContact(headers:any , body:any){
     return this.http.post(this.base_url + '/user/createContact' ,body, { headers })
@@ -45,6 +50,9 @@ export class ApisService {
   sandContract( body:any , headers:any){
     console.log(body , headers)
     return this.http.post(this.base_url + `/user/sendContract` ,body,  { headers } )
+  }
+  deleteContact(headers:any , id:string){
+    return this.http.delete(this.base_url + `/user/deleteContact/${id}` , { headers })
   }
 
 }

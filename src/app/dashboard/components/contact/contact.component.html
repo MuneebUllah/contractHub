@@ -13,22 +13,22 @@
         <td scope="row" (click)="receivemail(items._id)">{{items.name }}</td>
         <td>{{items.email }}</td>
         <!-- <td>{{items.entityType}}</td> -->
-        <td><img src="../../../assets/delete.svg" alt="img"/></td>
+        <td><img src="../../../assets/delete.svg" alt="img" (click)="deleteRow(items._id)"/></td>
       </tr>
     </tbody>
   </table>
 
 <!-- <div class="w-100"> -->
   <div class="d-flex flex-column justify-content-center align-items-center w-100" style="height: 90vh;" *ngIf="veriableService.addContactForm">
-    <div class="bg-white rounded d-flex flex-column justify-content-center align-items-center p-3 gap-4 " style=" width:90% ;">
+    <div class="bg-white rounded d-flex flex-column justify-content-center align-items-center p-3 gap-4 " style=" width:80% ;">
       <!-- <div class="w-100">
         <img src="../../../assets/cross.svg" class="float-end position-relative" style="top: -40px; right: -35px; width: 50px;"/>
       </div> -->
       <!-- <div style="width: 80%; height: 80%;"> -->
-      <div class="d-flex gap-3 w-100 justify-content-center">
+      <!-- <div class="d-flex gap-3 w-100 justify-content-center">
         <button  type="button"  [ngClass]="individualContactForm ? 'btn btn-primary' : 'border-primary btn text-primary bg-white' " (click)="individualButtonFun()">Individual Contact</button>
         <button  [ngClass]="companyContactForm ? 'btn btn-primary' : 'border-primary btn text-primary bg-white' " (click)="companyButtonFun()">Company Contact</button>
-      </div>
+      </div> -->
       <form class="row d-flex flex-wrap p-5 " *ngIf="individualContactForm">
         <div class="col-6 py-3">
           <label>Full Name</label>

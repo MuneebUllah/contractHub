@@ -10,7 +10,7 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <input type="search" class="col-8 rounded-pill p-3" placeholder="🔍Search Documents by name, party or email"/>
+        <input type="search" class="col-8 rounded-pill p-3" placeholder="🔍Search Documents by name, party or email" value="" [(ngModel)]="searchInput" (keyup)="searchDocument()"/>
       </div>
       <div>
       <!-- <div *ngIf="veriableService.document">

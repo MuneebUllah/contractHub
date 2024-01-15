@@ -56,6 +56,7 @@ export class SidebarComponent implements OnInit {
     this.veriableService.contact = true;
     this.veriableService.account = false;
     this.veriableService.sandContractForm = false
+    this.veriableService.notificationIcon = false
     this.routingService.goToContact(this.token);
   }
   settingfun() {
@@ -126,8 +127,8 @@ export class SidebarComponent implements OnInit {
       next:((data)=>{
       console.log(data)
       // this.viewDoc.getDocUrl(this.uploadDocument.docURL)
-      this.routingService.goToViewDoc(this.token);
-      this.veriableService.viewDoc = true;
+      // this.routingService.goToViewDoc(this.token);
+      // this.veriableService.viewDoc = true;
       
       })
     })
@@ -139,5 +140,6 @@ export class SidebarComponent implements OnInit {
 
   logout() {
     localStorage.clear();
+    this.routingService.goToLogin();
   }
 }

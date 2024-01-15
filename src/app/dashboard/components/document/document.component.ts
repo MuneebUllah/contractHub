@@ -36,6 +36,7 @@ export class DocumentComponent implements OnInit {
     });
   }
   openDocument(id : any){
+    // this.routingService.goToViewDoc(this.token)
     this.routingService.goToViewDoc(this.token)
     this.veriableService.viewDoc = true
     this.veriableService.document = false
