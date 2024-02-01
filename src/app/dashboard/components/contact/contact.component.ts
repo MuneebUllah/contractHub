@@ -6,6 +6,7 @@ import { HeaderService } from 'src/app/Services/header.service';
 import { HttpHeaders } from '@angular/common/http';
 import { VeriablesService } from 'src/app/Services/veriables.service';
 import { ContractForm } from 'src/app/Shared/models/contractForm';
+import { StorageService } from 'src/app/Services/storage.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -25,7 +26,7 @@ export class ContactComponent implements OnInit{
   //  console.log(this.allContacts);
    
   }
-  constructor(private api:ApisService , private header:HeaderService , public veriableService:VeriablesService){
+  constructor(private api:ApisService ,private storage:StorageService, private header:HeaderService , public veriableService:VeriablesService){
 
   }
   contact = [
@@ -81,7 +82,9 @@ export class ContactComponent implements OnInit{
       next:((data:any)=>{
         console.log(data)
         this.veriableService.addContactForm = false
-        this.veriableService.contact = true
+        this.veriableService.contact = true;
+        this.getAllContact()
+        // setTimeout
       
         // console
       })
@@ -103,6 +106,7 @@ export class ContactComponent implements OnInit{
     this.api.deleteContact(this.header.headers , id).subscribe({
       next:((data:any)=>{
         console.log(data)
+        this.getAllContact();
       }
       )
     })

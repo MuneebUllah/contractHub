@@ -44,9 +44,9 @@ const routes: Routes = [
     component:StepperViewComponent
   },
   {
-    path:'dashboard/:id',
+    path:'dashboard',
     canActivate: [AuthGuard],
-    component:DashboardComponent,
+  component: DashboardComponent,
     children:[
       {
         path:'document',
@@ -76,7 +76,8 @@ const routes: Routes = [
         path:'convas',
         component:CanvasComponent
       },
-    ]
+    ] 
+    
   },
   
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
@@ -85,7 +86,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes) ],
   exports: [RouterModule],
   providers:[
     // provideRouter(routes , )

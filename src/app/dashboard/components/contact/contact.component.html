@@ -13,7 +13,7 @@
         <td scope="row" (click)="receivemail(items._id)">{{items.name }}</td>
         <td>{{items.email }}</td>
         <!-- <td>{{items.entityType}}</td> -->
-        <td><img src="../../../assets/delete.svg" alt="img" (click)="deleteRow(items._id)"/></td>
+        <td><img src="../../../assets/delete.svg" alt="img" style="cursor: pointer;" (click)="deleteRow(items._id)"/></td>
       </tr>
     </tbody>
   </table>

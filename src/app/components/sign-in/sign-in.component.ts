@@ -23,14 +23,15 @@ export class SignInComponent implements OnInit {
     return (
       this.user.email &&
       this.user.password &&
-      this.user.checkboxChecked
+      this.user.password.length >= 8
+      // this.user.checkboxChecked
     );
   }
 
   logInfun() {
     this.api.signIn(this.user).subscribe((data:any) => {
       next:(
-      localStorage.setItem('token' , data.Token),
+      sessionStorage.setItem('token' , data.Token),
       this.routingService.goToDashboard(data.Token)
     )}
     )

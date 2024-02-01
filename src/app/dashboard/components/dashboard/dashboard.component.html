@@ -1,5 +1,5 @@
 <div class="dashboard d-flex h-100"> 
-  <app-sidebar></app-sidebar>
+  <app-sidebar  [ngClass]="{'show': veriableService.sidebarOpen, 'hide': !veriableService.sidebarOpen}"></app-sidebar>
   <div class="w-100">
       <app-nav-bar ></app-nav-bar>
     <main class="p-3 d-flex flex-column gap-3">
@@ -10,7 +10,7 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <input type="search" class="col-8 rounded-pill p-3" placeholder="🔍Search Documents by name, party or email" value="" [(ngModel)]="searchInput" (keyup)="searchDocument()"/>
+        <input type="search" class="col-8 rounded-pill p-3" style="height: 50px;" placeholder="🔍Search Documents by name, party or email" value="" [(ngModel)]="searchInput" (keyup)="searchDocument()"/>
       </div>
       <div>
       <!-- <div *ngIf="veriableService.document">

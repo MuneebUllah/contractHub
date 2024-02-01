@@ -17,7 +17,7 @@ import { ViewDocComponent } from '../view-doc/view-doc.component';
 export class SidebarComponent implements OnInit {
   user: Signup = new Signup();
   uploadDocument: UploadDocument = new UploadDocument();
-  sidebarOpen: boolean = false;
+  
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.checkWindowWidth();
@@ -28,66 +28,45 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.checkWindowWidth();
     this.getCompaniesFun();
-    this.documentfun()
+    this.documentfun();
   }
 
 
   documentfun() {
-    this.veriableService.document = true;
-    this.veriableService.templete = false;
-    this.veriableService.setting = false;
-    this.veriableService.contact = false;
-    this.veriableService.account = false;
     this.routingService.goToDocument(this.token);
   }
-  templetefun() {
-    this.veriableService.document = false;
-    this.veriableService.templete = true;
-    this.veriableService.setting = false;
-    this.veriableService.contact = false;
-    this.veriableService.account = false;
-    this.routingService.goToTemplete(this.token);
+  // templetefun() {
+  //   this.veriableService.document = false;
+  //   this.veriableService.templete = true;
+  //   this.veriableService.setting = false;
+  //   this.veriableService.contact = false;
+  //   this.veriableService.account = false;
+  //   this.routingService.goToTemplete(this.token);
 
-  }
+  // }
   contactfun() {
-    this.veriableService.document = false;
-    this.veriableService.templete = false;
-    this.veriableService.setting = false;
-    this.veriableService.contact = true;
-    this.veriableService.account = false;
-    this.veriableService.sandContractForm = false
-    this.veriableService.notificationIcon = false
     this.routingService.goToContact(this.token);
   }
   settingfun() {
-    this.veriableService.document = false;
-    this.veriableService.templete = false;
-    this.veriableService.setting = true;
-    this.veriableService.contact = false;
-    this.veriableService.account = false
     this.routingService.goToSetting(this.token);
   }
-  accountfun() {
-    this.veriableService.document = false;
-    this.veriableService.templete = false;
-    this.veriableService.setting = false;
-    this.veriableService.contact = false;
-    this.veriableService.account = true
-    this.routingService.goToAccount(this.token);
-  }
+  // accountfun() {
+  //   this.veriableService.document = false;
+  //   this.veriableService.templete = false;
+  //   this.veriableService.setting = false;
+  //   this.veriableService.contact = false;
+  //   this.veriableService.viewDoc = false
+  //   this.veriableService.account = true
+  //   this.routingService.goToAccount(this.token);
+  // }
   createAccount(event: Event) {
     event.preventDefault();
-    this.veriableService.corporateForm = false
-    this.veriableService.companyInfo = true
-    this.veriableService.companyState = false
-    this.veriableService.timeZone = false
-    this.veriableService.address = false
-    this.routingService.goToCreateAccount(this.token);
+    this.routingService.goToCreateAccount();
   }
 
   private checkWindowWidth(): void {
     const windowWidth = window.innerWidth;
-    this.sidebarOpen = windowWidth > 1200;
+    this.veriableService.sidebarOpen = windowWidth > 1200;
   }
 
 
@@ -107,7 +86,8 @@ export class SidebarComponent implements OnInit {
       const formData = new FormData();
       formData.append('Document', selectedFile);
       this.uploadDocument.docName = fileName;
-
+      console.log(formData);
+      
       const body: any = {
         Document: selectedFile,
       }
@@ -116,7 +96,10 @@ export class SidebarComponent implements OnInit {
       this.api.sentFile(formData, this.header.headers).subscribe((data: any) => {
         next: (
           localStorage.setItem('url', data.url),
-          this.createDocument()
+          this.createDocument(),
+          this.storageService.documentUploaded.next(true) 
+          // ResourceLoader()
+          // window.location.reload()
         )
       })
 
@@ -125,7 +108,8 @@ export class SidebarComponent implements OnInit {
   createDocument(){
     this.api.createDocument(this.uploadDocument , this.header.headers).subscribe({
       next:((data)=>{
-      console.log(data)
+
+      console.log(data , this.uploadDocument)
       // this.viewDoc.getDocUrl(this.uploadDocument.docURL)
       // this.routingService.goToViewDoc(this.token);
       // this.veriableService.viewDoc = true;
@@ -135,7 +119,7 @@ export class SidebarComponent implements OnInit {
     console.log(this.uploadDocument);
   }
   toggleSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
+    this.veriableService.sidebarOpen = !this.veriableService.sidebarOpen;
   }
 
   logout() {

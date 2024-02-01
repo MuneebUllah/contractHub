@@ -1,10 +1,233 @@
-<div>
+<!-- <div>
     <canvas #canvasElement width="400" height="200" style="border: 1px solid black;" (mousedown)="startEditing()"></canvas>
     <textarea style="border: 1px solid black;"
       [(ngModel)]="textContent"
-      *ngIf="editing"
+      *ngIf="editing" -->
       <!-- (blur)="stopEditing()"
       (keyup.enter)="stopEditing()" -->
-    ></textarea>
+    <!-- ></textarea>
     <button (click)="toggleEditMode()">{{ editing ? 'View' : 'Edit' }}</button>
-  </div>
+  </div> -->
+  <!-- <div class='container' dragula="COPYABLE" id="left">
+    <div>Hello</div>
+    </div>
+    <div class='container' dragula="COPYABLE" id="right">
+    <div>Hy</div>
+    </div> -->
+    <!-- <button (click)="makePDF()">Download</button>
+    <div id="content" #content>
+
+    </div> -->
+    <!-- <canvas #canvas style="border: 1px solid black;" width="800" height="1200"></canvas> --><div>
+  <!-- <canvas #pdfCanvas></canvas>
+  <button (click)="openPdf()">openPdf</button>
+</div> -->
+<!-- <canvas  #pdfCanvas style="height: 100vh; width: 100%; border: 1px solid rgb(35, 35, 35);"></canvas> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttons {
+            margin-bottom: 20px; 
+        }
+        .buttons .red {
+            background-color: #f44336; 
+            border-radius: 50%; 
+            border: none; 
+            padding: 20px;
+            margin: 4px 10px;
+            cursor: pointer;
+        }
+        .buttons .green {
+            background-color: #4caf50; 
+            border-radius: 50%; 
+            border: none; 
+            padding: 20px;
+            margin: 4px 10px;
+            cursor: pointer;
+        }
+        .buttons .orange {
+            background-color: #ff9800; 
+            border-radius: 50%; 
+            border: none; 
+            padding: 20px;
+            margin: 4px 10px;
+            cursor: pointer;
+        }
+        .buttons .blue {
+            background-color: #2196f3; 
+            border-radius: 50%; 
+            border: none; 
+            padding: 20px;
+            margin: 4px 10px;
+            cursor: pointer;
+        }
+        .download {
+            background-color: #f50057; 
+            color: #fff; 
+            font-size: 18px;
+            letter-spacing: 1px; 
+            border: none; 
+            padding: 20px;
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+        .download:hover {
+            background-color: #f73378;
+        }
+    </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+    
+            function myFunction(color) {
+                var c = document.getElementById("myCanvas");
+                c.setAttribute("class", color);
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = `${color}`;
+                ctx.fillRect(20, 20, 460, 360);
+            }
+    
+            createAndDownloadPdf = () => {
+                axios.post('/create-pdf', {
+                    color: document.getElementById("myCanvas").className,
+                })
+                .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+                .then((res) => {
+                    const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+                    const link=window.URL.createObjectURL(pdfBlob);
+                    window.location=link;
+                })
+            }
+    
+        </script>
+</head>
+<body>
+
+    <div class="buttons">
+        <button onclick="myFunction('#f44336')" class="red"></button>
+        <button onclick="myFunction('#4caf50')" class="green"></button>
+        <button onclick="myFunction('#ff9800')" class="orange"></button>
+        <button onclick="myFunction('#2196f3')" class="blue"></button>
+    </div>
+
+    <canvas id="myCanvas" width="500" height="400" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <button class="download" onclick='createAndDownloadPdf()'>Download the PDF</button>
+
+
+    
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.js"></script>
+</head>
+<body>
+    <canvas id="pdfCanvas" width="1200px" height="400px"></canvas>
+    <script>
+        // Function to load and render the PDF
+        function renderPDF(url, canvasId) {
+          // Get the canvas and context
+          const canvas = document.getElementById(canvasId);
+          const context = canvas.getContext('2d');
+      
+          // Asynchronously download PDF
+          pdfjsLib.getDocument(url).promise.then((pdfDoc) => {
+            // Fetch the first page
+            for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++){
+                // debugger
+            pdfDoc.getPage(pageNumber).then((page) => {
+              const viewport = page.getViewport({ scale: 1 });
+              canvas.width = viewport.width;
+              canvas.height = viewport.height;
+
+              const renderContext = {
+                canvasContext: context,
+                viewport: viewport,
+              };
+              page.render(renderContext);
+            });
+        }
+          });
+        }
+        renderPDF('../../../../assets/CamScanner 02-07-2023 14.52.pdf', 'pdfCanvas');
+      </script>
+      
+</body>
+</html> -->
+
+<!-- <canvas id="pdfCanvas" width="800px" height="400px"></canvas> -->
+
+
+
+
+    <!-- <input type="file" id="pdf-upload" accept="application/pdf" />
+    <div id="pages"></div>
+
+    <script type="text/javascript">
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js';
+
+        document.querySelector("#pdf-upload").addEventListener("change", function (e) {
+            document.querySelector("#pages").innerHTML = "";
+            console.log("function Called");
+            var file = e.target.files[0]
+            if (file.type != "application/pdf") {
+                alert(file.name + " is not a pdf file.")
+                return
+            }
+
+            var fileReader = new FileReader();
+
+            fileReader.onload = function () {
+                var typedarray = new Uint8Array(this.result);
+
+                pdfjsLib.getDocument(typedarray).promise.then(function (pdf) {
+                    for (var i = 0; i < pdf.numPages; i++) {
+                        (function (pageNum) {
+                            pdf.getPage(i + 1).then(function (page) {
+                                var viewport = page.getViewport(1.5);
+                                var canvas = document.createElement("canvas");
+                                canvas.className = "page";
+                                document.querySelector("#pages").appendChild(canvas);
+                                canvas.height = viewport.height;
+                                canvas.width = viewport.width;
+
+                                page.render({
+                                    canvasContext: canvas.getContext('2d'),
+                                    viewport: viewport
+                                }).promise.then(function () {
+                                    console.log('Page rendered');
+                                });
+                            });
+                        })(i + 1);
+                    }
+                });
+            };
+
+            fileReader.readAsArrayBuffer(file);
+        });
+    </script> -->
+

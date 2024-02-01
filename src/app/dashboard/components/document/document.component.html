@@ -22,7 +22,6 @@
       <tr> 
         <th scope="col">Documents</th>
         <th scope="col">Status</th>
-        <th scope="col">Email Tracking</th>
         <th scope="col">With</th>
         <th scope="col">Action</th>
 
@@ -30,12 +29,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let items of documents">
-        <td scope="row" (click)="openDocument(items._id)" style="cursor: pointer;">{{items.docName}}</td>
-        <td >
-          <span class="draft">{{items.status || 'status'}}</span>
-        </td>
-        <td>{{items.email || 'status'}}</td>
-        <td>{{items.with || 'status'}}</td>
+        <!-- <span *ngFor="let document of items"> -->
+          <td scope="row" (click)="openDocument(items._id)" style="cursor: pointer;">{{items.docName}}</td>
+          <td >
+            <span class="draft">{{items.status || 'status'}}</span>
+          </td>
+        <!-- </span> -->
+        <!-- <td>{{items.docReceiversEmails[0] || 'null'}}</td> -->
+        <td>{{items.recEmails[0] || 'null'}}</td>
         <td><img src="../../../assets/delete.svg" (click)="deleteRow(items._id)" style="cursor: pointer;"/></td>
       </tr>
     </tbody>

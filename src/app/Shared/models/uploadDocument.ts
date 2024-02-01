@@ -1,5 +1,5 @@
 export class UploadDocument{
-    docURL:string ='upload'
+    docURL:string =`${localStorage.getItem('url')}`
     docName:string = '' 
-    receiver:string = 'msf23fd546sfjlf'
+    receiver:string = ''
 }

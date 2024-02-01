@@ -19,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocumentEditorModule } from '@syncfusion/ej2-angular-documenteditor';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 @NgModule({
@@ -41,9 +42,10 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     DragDropModule,
     FormsModule,
     NgxDocViewerModule,
+    NgxExtendedPdfViewerModule,
     BrowserModule,
     BrowserAnimationsModule,
-    DocumentEditorModule
+    DocumentEditorModule,
     // dragDropModule
   ]
 })

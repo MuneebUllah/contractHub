@@ -26,6 +26,14 @@ export class DocumentComponent implements OnInit {
   ngOnInit(): void {
     this.getFolders();
     this.getDocument();
+    // this.openDocument();
+    this.storageService.documentUploaded.subscribe(res=>{
+     
+      if(res){
+        // debugger
+        setTimeout(()=>{this.getDocument()},500)
+      }
+    })
   }
   getFolders(){
     this.api.getFolders( this.header.headers).subscribe({
@@ -36,21 +44,20 @@ export class DocumentComponent implements OnInit {
     });
   }
   openDocument(id : any){
-    // this.routingService.goToViewDoc(this.token)
-    this.routingService.goToViewDoc(this.token)
+    this.routingService.goToViewDoc()
+    // this.routingService.goToCanvas()
     this.veriableService.viewDoc = true
     this.veriableService.document = false
     this.veriableService.notificationIcon = false
     // this.uploadDoc.docURL = id
     localStorage.setItem('documentId' , id)
-    console.log(this.contractForm.receivers)
+    this.storageService.getDocument.next(id)
 
   }
   getDocument(){
-    this.api.getDocument(this.header.headers).subscribe({
+    this.api.getAllDocument(this.header.headers).subscribe({
       next:((data:any)=>{
         this.documents = data.Documents
-        console.log(data)
       }
       )
     });
@@ -61,6 +68,7 @@ export class DocumentComponent implements OnInit {
       this.api.deleteDocument(this.header.headers , id).subscribe({
         next:((data:any)=>{
           console.log(data)
+          this.getDocument();
         }
         )
       })

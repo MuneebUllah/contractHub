@@ -26,7 +26,7 @@ export class ApisService {
     console.log(body , headers);  
     return this.http.post(this.base_url + '/user/saveDocumentToServer' ,body , {headers})
   }
-  getDocument(headers:any){
+  getAllDocument(headers:any){
     return this.http.get(this.base_url + '/user/getAllDocuments' , { headers })
   }
   getTemplete(headers:any){    
@@ -40,6 +40,10 @@ export class ApisService {
   }
   searchDocument( body:any ,headers:any){
     return this.http.post(this.base_url + '/user/searchDocument' ,body, { headers })
+  }
+  getDocument(id:any , headers:any){
+    console.log(id)
+    return this.http.get(this.base_url + `/user/getDocument/${id}` , { headers })
   }
   createContact(headers:any , body:any){
     return this.http.post(this.base_url + '/user/createContact' ,body, { headers })

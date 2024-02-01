@@ -1,8 +1,8 @@
-<div class="sidebar d-flex dropdown align-items-center flex-column bg-white h-100 gap-3"  [ngClass]="{'show': sidebarOpen, 'hide': !sidebarOpen}">
+<div class="sidebar d-flex dropdown align-items-center flex-column bg-white h-100 gap-3" >
     <div class="sidebar-toggle"  (click)="toggleSidebar()">
         <img src="../../../assets/burger-menu.svg" width="45" class="pt-2"/>
       </div>
-      <!-- <div [ngClass]="sidebarOpen ? 'd-flex flex-column gap-2' : 'd-none'"> -->
+      <!-- <div [ngClass]="sidebarOpen ? 'd-flex flex-column gap-2' : 'sidebar-toggle-class'"> -->
       <a href="/dashboard"
       class="sidebar-title nav-link d-flex fs-4 py-4 align-items-center justify-content-around text-white w-100">
       <div>{{this.veriableService.userName}}</div>
@@ -65,7 +65,7 @@
                 </div>
             </label>
             <div class="p-2 sidebar-middle-down-content">
-                <span  class="p-3 upload-cart d-flex w-100 justify-content-between"
+                <span  class="p-3 upload-cart d-flex w-100 justify-content-center"
                     (click)="documentfun()">Document</span>
                 <!-- <span [ngClass]="veriableService.templete ? 'upload-cart ' : ''" class="p-3 "
                     (click)="templetefun()">Templete</span> -->

@@ -12,12 +12,15 @@ export class StorageService {
   searchInput: Subject<any> = new BehaviorSubject<any>('');
   productsView: Subject<any> = new BehaviorSubject<any>('list');
   isNewNotification: Subject<any> = new BehaviorSubject<any>("default");
-
-  constructor() { }
-
   user: Signup = new Signup();
   user$: BehaviorSubject<any> = new BehaviorSubject(null);
+  documentUploaded: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  getDocument: BehaviorSubject<any> = new BehaviorSubject('');
+  contact: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  activeLink: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  companyContactForm: BehaviorSubject<boolean> = new BehaviorSubject(false);
   token: any = '';
+  constructor() { }
 
   getProperty(key: string) {
     const val = window.localStorage.getItem(key);
@@ -56,7 +59,7 @@ export class StorageService {
 
   getToken(): any {
     this.token = '';
-    this.token = localStorage.getItem('token');
+    this.token = sessionStorage.getItem('token');
     if (!this.token) {
       this.token = '';
     }

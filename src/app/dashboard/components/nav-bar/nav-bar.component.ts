@@ -10,30 +10,31 @@ import { StorageService } from 'src/app/Services/storage.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent  implements OnInit{
+export class NavBarComponent implements OnInit{
   token = this.storageService.getToken()
+  isResponceReceived:boolean = false
   constructor (public veriableService: VeriablesService ,private storageService: StorageService, private header:HeaderService, public api:ApisService, public routingService:RoutingService){}
   ngOnInit(): void {
     
   }
   addContactForm(){
     this.veriableService.addContactForm = true
+    // this.storageService.companyContactForm.next(true)
     this.veriableService.contact = false
+    this.isResponceReceived = true
+    // debugger
+    // this.storageService.companyContactForm.subscribe((res:any)=>{     
+    //   if(res){
+    //     setTimeout(()=>{},500)
+        
+    //   }
+    // })
   }
   sandContractForm(){
     const body = {
       documentId : this.veriableService.docId
     }
-    // this.api.sandContract(body , this.header.headers).subscribe({
-    //   next:((data:any)=>{
-    //     console.log(data)
-    //     this.routingService.goToContact(this.token)
-    //   }
-
-    //   )
-    // })
-    // this.routingService.goToContact(this.token);
-    this.veriableService.contact = true;
+    this.veriableService.addContactFormButton = false
     this.veriableService.showEmailForm = true
   }
 
